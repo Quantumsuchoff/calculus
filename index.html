@@ -25,7 +25,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -35,270 +34,119 @@
     font-weight: 300;
     font-size: 14.5px;
     line-height: 1.75;
-    padding: 0;
   }
 
   /* ── LAYOUT ── */
-  .page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 56px 32px 80px;
-  }
+  .page { max-width: 900px; margin: 0 auto; padding: 56px 32px 80px; }
 
   /* ── HEADER ── */
-  header {
-    border-top: 5px solid var(--ink);
-    padding-top: 22px;
-    margin-bottom: 10px;
-  }
-  .header-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 8px;
-  }
-  header h1 {
-    font-family: var(--display);
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--ink);
-  }
-  .header-rule {
-    width: 100%;
-    height: 1px;
-    background: var(--rule);
-    margin: 16px 0 8px;
-  }
-  .header-sub {
-    font-size: 13px;
-    color: #777;
-    font-weight: 400;
-    margin-bottom: 0;
-  }
+  header { border-top: 5px solid var(--ink); padding-top: 22px; margin-bottom: 10px; }
+  .header-label { font-family: var(--mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  header h1 { font-family: var(--display); font-size: 3rem; font-weight: 700; line-height: 1.1; color: var(--ink); }
+  .header-rule { width: 100%; height: 1px; background: var(--rule); margin: 16px 0 8px; }
+  .header-sub { font-size: 13px; color: #777; font-weight: 400; }
 
   /* ── TOC ── */
-  .toc {
-    margin: 36px 0 52px;
-    padding: 20px 24px;
-    background: var(--cream);
-    border-left: 4px solid var(--ink);
-  }
-  .toc-title {
-    font-family: var(--mono);
-    font-size: 9.5px;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 12px;
-  }
-  .toc ol {
-    padding-left: 20px;
-    font-size: 13.5px;
-    line-height: 2;
-  }
-  .toc a {
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--rule);
-    transition: color .15s;
-  }
+  .toc { margin: 36px 0 52px; padding: 20px 24px; background: var(--cream); border-left: 4px solid var(--ink); }
+  .toc-title { font-family: var(--mono); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; font-size: 13.5px; line-height: 2; }
+  .toc a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--rule); transition: color .15s; }
   .toc a:hover { color: var(--red); }
 
   /* ── SECTION ── */
-  .section {
-    margin-bottom: 60px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid var(--rule);
-  }
+  .section { margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
   .section:last-child { border-bottom: none; }
-
-  .sec-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 22px;
-  }
-  .sec-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .1em;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 4px 10px;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-  .section h2 {
-    font-family: var(--display);
-    font-size: 1.65rem;
-    font-weight: 600;
-    line-height: 1.2;
-  }
+  .sec-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+  .sec-badge { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; background: var(--ink); color: var(--paper); padding: 4px 10px; flex-shrink: 0; white-space: nowrap; }
+  .section h2 { font-family: var(--display); font-size: 1.65rem; font-weight: 600; line-height: 1.2; }
 
   /* ── SUB-SECTION ── */
   .sub { margin: 22px 0 10px; }
-  .sub h3 {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--blue);
-    padding-bottom: 5px;
-    border-bottom: 1px dashed var(--rule);
-    margin-bottom: 10px;
-  }
+  .sub h3 { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); padding-bottom: 5px; border-bottom: 1px dashed var(--rule); margin-bottom: 10px; }
 
   p { font-size: 14px; margin-bottom: 8px; }
 
   /* ── ALGORITHM BOX ── */
-  .algo {
-    border: 1px solid var(--rule);
-    border-left: 4px solid var(--red);
-    background: #fff;
-    padding: 16px 20px;
-    margin: 12px 0;
-  }
-  .algo-label {
-    font-family: var(--mono);
-    font-size: 9.5px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 10px;
-  }
-  .algo ol, .algo ul {
-    padding-left: 20px;
-    font-size: 13.5px;
-    line-height: 1.95;
-  }
+  .algo { border: 1px solid var(--rule); border-left: 4px solid var(--red); background: #fff; padding: 16px 20px; margin: 12px 0; }
+  .algo-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+  .algo ol, .algo ul { padding-left: 20px; font-size: 13.5px; line-height: 1.95; }
   .algo li { margin-bottom: 2px; }
 
   /* ── FORMULA BOX ── */
-  .fbox {
-    border: 1.5px solid var(--ink);
-    background: #fff;
-    padding: 16px 20px;
-    margin: 14px 0;
-  }
-  .fbox-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--green);
-    margin-bottom: 10px;
-  }
-  .fbox .math-line {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding: 4px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 13.5px;
-  }
+  .fbox { border: 1.5px solid var(--ink); background: #fff; padding: 16px 20px; margin: 14px 0; }
+  .fbox-label { font-family: var(--mono); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+  .fbox .math-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 4px 0; border-bottom: 1px solid #eee; font-size: 13.5px; }
   .fbox .math-line:last-child { border-bottom: none; }
-  .fbox .math-desc {
-    font-size: 12px;
-    color: #666;
-    font-style: italic;
-  }
+  .fbox .math-desc { font-size: 12px; color: #666; font-style: italic; }
 
-  /* standalone math display */
-  .math-block {
-    text-align: center;
-    padding: 10px 0;
-    font-size: 1.05rem;
-    overflow-x: auto;
-  }
+  .math-block { text-align: center; padding: 10px 0; font-size: 1.05rem; overflow-x: auto; }
   .math-block + .math-block { padding-top: 2px; }
 
   /* ── NOTE / TIP ── */
-  .note {
-    background: #fff9e6;
-    border-left: 3px solid var(--gold);
-    padding: 10px 14px;
-    font-size: 13px;
-    margin: 10px 0;
-    line-height: 1.65;
-  }
+  .note { background: #fff9e6; border-left: 3px solid var(--gold); padding: 10px 14px; font-size: 13px; margin: 10px 0; line-height: 1.65; }
   .note strong { color: var(--gold); }
-
-  .tip {
-    background: #eaf1ff;
-    border-left: 3px solid var(--blue);
-    padding: 10px 14px;
-    font-size: 13px;
-    margin: 10px 0;
-    line-height: 1.65;
-  }
+  .tip { background: #eaf1ff; border-left: 3px solid var(--blue); padding: 10px 14px; font-size: 13px; margin: 10px 0; line-height: 1.65; }
   .tip strong { color: var(--blue); }
 
   /* ── EXAMPLE ── */
-  .example {
-    border: 1px solid var(--rule);
-    margin: 16px 0;
-    overflow: hidden;
-  }
-  .ex-head {
-    background: var(--cream);
-    border-bottom: 1px solid var(--rule);
-    padding: 7px 16px;
-    font-family: var(--mono);
-    font-size: 9.5px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--green);
-  }
-  .ex-body {
-    padding: 14px 18px;
-    font-size: 13.5px;
-    line-height: 1.95;
-  }
+  .example { border: 1px solid var(--rule); margin: 16px 0; overflow: hidden; }
+  .ex-head { background: var(--cream); border-bottom: 1px solid var(--rule); padding: 7px 16px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
+  .ex-body { padding: 14px 18px; font-size: 13.5px; line-height: 1.95; }
   .ex-body p { margin-bottom: 5px; font-size: 13.5px; }
 
-  /* ── TABLE ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    margin: 14px 0;
-  }
-  th {
-    background: var(--ink);
-    color: var(--paper);
+  /* ── SOP STEP LABEL ── */
+  .sopstep {
+    display: inline-block;
     font-family: var(--mono);
     font-size: 9.5px;
-    letter-spacing: .12em;
+    font-weight: 600;
+    letter-spacing: .08em;
+    color: var(--red);
+    background: #fff0ee;
+    border: 1px solid #f0c0b8;
+    padding: 1px 7px;
+    margin: 10px 0 4px;
     text-transform: uppercase;
-    padding: 9px 14px;
-    text-align: left;
   }
-  td {
-    padding: 9px 14px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-    line-height: 1.6;
+  .step-block { margin: 8px 0 4px; }
+
+  /* ── ANSWER BOX ── */
+  .answer {
+    border: 2px solid var(--ink);
+    background: var(--cream);
+    padding: 10px 16px;
+    margin: 12px 0 4px;
+    font-size: 14px;
+    text-align: center;
   }
+
+  /* ── CHECKMARK ── */
+  .chk { color: var(--green); font-weight: 600; }
+
+  /* ── TABLE ── */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 14px 0; }
+  th { background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; padding: 9px 14px; text-align: left; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.6; }
   tr:nth-child(even) td { background: var(--cream); }
 
   /* ── TWO-COL ── */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin: 14px 0;
-  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
   @media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } }
 
   hr.thin { border: none; border-top: 1px solid var(--rule); margin: 20px 0; }
 
-  /* katex overrides */
   .katex { font-size: 1.05em; }
   .katex-display { margin: 6px 0; }
+
+  /* ── ALIGN BLOCK (like LaTeX align env) ── */
+  .align-block { padding: 6px 0 6px 20px; font-size: 14px; }
+
+  /* Back to top */
+  .back-top { font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); text-decoration: none; border-bottom: 1px dotted var(--red); float: right; margin-top: 4px; }
+  .back-top:hover { color: var(--ink); }
+
+  /* given / goal labels */
+  .given-label { font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: #888; margin-right: 6px; }
 </style>
 </head>
 <body>
@@ -309,7 +157,7 @@
   <div class="header-label">Standard Operating Procedure · Calculus II</div>
   <h1>Polar &amp; Parametric Equations</h1>
   <div class="header-rule"></div>
-  <p class="header-sub">Chapter 10 Complete Problem-Solving Guide — Sections 10.1 – 10.5</p>
+  <p class="header-sub">Chapter 10 Complete Problem-Solving Guide — Sections 10.1–10.5 &nbsp;·&nbsp; Full step-by-step worked solutions</p>
 </header>
 
 <!-- ════ TOC ════ -->
@@ -335,23 +183,25 @@
   <div class="sec-header">
     <span class="sec-badge">§ 1</span>
     <h2>Polar ↔ Rectangular Coordinate Conversions</h2>
+    <a href="#" class="back-top">↑ top</a>
   </div>
 
   <div class="fbox">
     <div class="fbox-label">Core Conversion Identities</div>
     <div class="math-line">
-      \(x = r\cos\theta\)&emsp;\(y = r\sin\theta\)
+      \(x = r\cos\theta\) &emsp; \(y = r\sin\theta\)
       <span class="math-desc">rectangular from polar</span>
     </div>
     <div class="math-line">
-      \(r^2 = x^2 + y^2\)&emsp;\(\tan\theta = \dfrac{y}{x}\)
+      \(r^2 = x^2 + y^2\) &emsp; \(\tan\theta = \dfrac{y}{x}\)
       <span class="math-desc">polar from rectangular</span>
     </div>
     <div class="math-line">
-      \(r = \sqrt{x^2+y^2}\)&emsp;\(\theta = \arctan\!\left(\dfrac{y}{x}\right)\) + quadrant adjust
+      \(r = \sqrt{x^2+y^2}\) &emsp; \(\theta = \arctan\!\left(\dfrac{y}{x}\right) + \text{quadrant adjust}\)
     </div>
   </div>
 
+  <!-- Algorithm A -->
   <div class="sub">
     <h3>Algorithm A — Rectangular \((x,y)\) → Polar \((r,\theta)\)</h3>
     <div class="algo">
@@ -372,10 +222,50 @@
       </ol>
     </div>
     <div class="note">
-      <strong>⚠ Quadrant Rule:</strong> \(\arctan(y/x)\) always returns a value in \(\left(-\tfrac{\pi}{2},\tfrac{\pi}{2}\right)\). Always inspect the signs of \(x\) and \(y\) to place \(\theta\) in the correct quadrant.
+      <strong>⚠ Quadrant Rule:</strong> \(\arctan(y/x)\) always returns a value in \(\left(-\tfrac{\pi}{2},\tfrac{\pi}{2}\right)\). Always inspect the signs of \(x\) and \(y\) to place \(\theta\) in the correct quadrant — the calculator alone cannot do this for you.
     </div>
   </div>
 
+  <!-- Example: (-3,3) to Polar -->
+  <div class="example">
+    <div class="ex-head">Example — Convert \((-3,\,3)\) to Polar (Algorithm A)</div>
+    <div class="ex-body">
+      <p><span class="given-label">Given:</span> \((x,y) = (-3,\,3)\). We apply Algorithm A in order.</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg A, Step 1]</span> Compute \(r\).
+        <div class="math-block">\[r = \sqrt{x^2 + y^2} = \sqrt{(-3)^2 + 3^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2}\]</div>
+        <p>We always take \(r > 0\) here.</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg A, Step 2]</span> Compute the reference angle \(\alpha\) using <em>absolute values</em>.
+        <div class="math-block">\[\alpha = \arctan\!\left(\frac{|y|}{|x|}\right) = \arctan\!\left(\frac{3}{3}\right) = \arctan(1) = \frac{\pi}{4}\]</div>
+        <p>The reference angle is \(\alpha = \tfrac{\pi}{4}\) (i.e., \(45^\circ\)). This is just the acute angle to the nearest axis — it does <em>not</em> yet account for which quadrant we are in.</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg A, Step 3]</span> Determine the quadrant and assign \(\theta\).
+        <p>Inspect the signs: \(x = -3 < 0\) and \(y = 3 > 0\). This places the point in <strong>Quadrant II</strong>.</p>
+        <p>From the SOP table: for Q II, \(\theta = \pi - \alpha\).</p>
+        <div class="math-block">\[\theta = \pi - \frac{\pi}{4} = \frac{4\pi}{4} - \frac{\pi}{4} = \frac{3\pi}{4}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg A, Step 4]</span> Write the final answer.
+        <div class="answer">\[(r,\,\theta) = \left(3\sqrt{2},\;\frac{3\pi}{4}\right)\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg A, Step 5]</span> Verify by converting back to rectangular.
+        <div class="math-block">\[x = r\cos\theta = 3\sqrt{2}\cdot\cos\!\left(\tfrac{3\pi}{4}\right) = 3\sqrt{2}\cdot\left(-\tfrac{\sqrt{2}}{2}\right) = -3 \quad\checkmark\]</div>
+        <div class="math-block">\[y = r\sin\theta = 3\sqrt{2}\cdot\sin\!\left(\tfrac{3\pi}{4}\right) = 3\sqrt{2}\cdot\tfrac{\sqrt{2}}{2} = 3 \quad\checkmark\]</div>
+        <p>Both coordinates match the original point. The answer is confirmed.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Algorithm B -->
   <div class="sub">
     <h3>Algorithm B — Polar \((r,\theta)\) → Rectangular \((x,y)\)</h3>
     <div class="algo">
@@ -388,13 +278,27 @@
     </div>
   </div>
 
+  <!-- Example: (4, 2pi/3) to Rectangular -->
   <div class="example">
-    <div class="ex-head">Example — Convert \((-3,\,3)\) to polar</div>
+    <div class="ex-head">Example — Convert \(\left(4,\,\tfrac{2\pi}{3}\right)\) to Rectangular (Algorithm B)</div>
     <div class="ex-body">
-      <p>\(r = \sqrt{(-3)^2 + 3^2} = \sqrt{18} = 3\sqrt{2}\)</p>
-      <p>\(\alpha = \arctan\!\left(\tfrac{3}{3}\right) = \arctan(1) = \tfrac{\pi}{4}\)</p>
-      <p>Point is in Q II \((x<0,\, y>0)\) \(\Rightarrow\) \(\theta = \pi - \tfrac{\pi}{4} = \tfrac{3\pi}{4}\)</p>
-      <p><strong>Answer: \(\left(3\sqrt{2},\;\tfrac{3\pi}{4}\right)\)</strong></p>
+      <p><span class="given-label">Given:</span> \((r,\theta) = \!\left(4,\,\tfrac{2\pi}{3}\right)\). Apply Algorithm B directly.</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg B, Step 1]</span> Compute \(x\).
+        <div class="math-block">\[x = r\cos\theta = 4\cos\!\left(\frac{2\pi}{3}\right) = 4\cdot\left(-\frac{1}{2}\right) = -2\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg B, Step 2]</span> Compute \(y\).
+        <div class="math-block">\[y = r\sin\theta = 4\sin\!\left(\frac{2\pi}{3}\right) = 4\cdot\frac{\sqrt{3}}{2} = 2\sqrt{3}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg B, Step 3]</span> Simplify and state the answer.
+        <div class="answer">\[(x,y) = \left(-2,\;2\sqrt{3}\right)\]</div>
+        <p><em>Note:</em> \(\cos\!\left(\tfrac{2\pi}{3}\right) = -\tfrac{1}{2}\) because \(\tfrac{2\pi}{3}\) is in Q II; the reference angle is \(\tfrac{\pi}{3}\) and cosine is negative in Q II.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -407,70 +311,148 @@
   <div class="sec-header">
     <span class="sec-badge">§ 2</span>
     <h2>Polar ↔ Algebraic Equation Conversions</h2>
+    <a href="#" class="back-top">↑ top</a>
   </div>
 
+  <!-- Algorithm C -->
   <div class="sub">
     <h3>Algorithm C — Rectangular Equation → Polar</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
-        <li><strong>First</strong>, replace any \(x^2+y^2\) directly with \(r^2\) (biggest shortcut).</li>
+        <li><strong>First</strong>, scan for \(x^2+y^2\) and replace directly with \(r^2\).</li>
         <li>Replace every remaining \(x\) with \(r\cos\theta\) and every \(y\) with \(r\sin\theta\).</li>
         <li>Simplify and factor out \(r\) where possible.</li>
-        <li>Divide both sides by \(r\) (valid when \(r\neq 0\)) or multiply by \(r\) if \(r\) is in the denominator.</li>
+        <li>Divide both sides by \(r\) (valid when \(r\neq 0\)) or multiply by \(r\) if needed.</li>
         <li>Solve for \(r\) (or leave as an implicit polar equation).</li>
       </ol>
     </div>
-    <div class="tip"><strong>Tip:</strong> Always scan the equation for \(x^2+y^2\) before touching individual \(x\) or \(y\) terms. A single substitution \(x^2+y^2\to r^2\) can cut the algebra in half.</div>
+    <div class="tip"><strong>Tip:</strong> Always scan for \(x^2+y^2\) <em>before</em> touching individual \(x\) or \(y\) terms. One substitution \(x^2+y^2\to r^2\) can cut the algebra in half. If you expand a binomial, look again for \(x^2+y^2\) in the result before proceeding.</div>
   </div>
 
+  <!-- 23a -->
   <div class="example">
-    <div class="ex-head">Example — Problem 23a: \(x^2 + (y-4)^2 = 16\)</div>
+    <div class="ex-head">Example — Problem 23a: \(x^2 + (y-4)^2 = 16\) (Algorithm C)</div>
     <div class="ex-body">
-      <p>Expand: \(x^2 + y^2 - 8y + 16 = 16\)</p>
-      <p>Simplify: \(x^2 + y^2 - 8y = 0\)</p>
-      <p>Replace \(x^2+y^2 \to r^2\): \(\;r^2 - 8y = 0\)</p>
-      <p>Replace \(y \to r\sin\theta\): \(\;r^2 - 8r\sin\theta = 0\)</p>
-      <p>Factor: \(r(r - 8\sin\theta) = 0\)</p>
-      <p><strong>Answer: \(r = 8\sin\theta\)</strong></p>
+      <p><strong>Observation:</strong> There is no \(x^2+y^2\) visible yet. The squared binomial must be expanded first, then we look for it.</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 1]</span> Expand the binomial and scan for \(x^2+y^2\).
+        <div class="math-block">\[x^2 + (y-4)^2 = 16\]</div>
+        <div class="math-block">\[x^2 + y^2 - 8y + 16 = 16 \qquad \text{expand }(y-4)^2 = y^2 - 8y + 16\]</div>
+        <div class="math-block">\[x^2 + y^2 - 8y = 0 \qquad \text{subtract 16 from both sides}\]</div>
+        <p>Now \(x^2+y^2\) appears. Replace it with \(r^2\):</p>
+        <div class="math-block">\[r^2 - 8y = 0\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 2]</span> Replace the remaining \(y\) with \(r\sin\theta\).
+        <div class="math-block">\[r^2 - 8r\sin\theta = 0\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 3]</span> Factor out \(r\).
+        <div class="math-block">\[r\bigl(r - 8\sin\theta\bigr) = 0\]</div>
+        <p>This gives \(r = 0\) (the pole, included in any curve passing through the origin) or \(r - 8\sin\theta = 0\).</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 4]</span> Divide by \(r\) (drop the trivial solution \(r=0\)).
+        <div class="math-block">\[r = 8\sin\theta\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 5]</span> Already solved for \(r\).
+        <div class="answer">\[r = 8\sin\theta\]</div>
+        <p><em>Sanity check:</em> This is standard form \(r = a\sin\theta\), which represents a circle centered at \((0,\,4)\) with radius \(4\) — consistent with the original equation.</p>
+      </div>
     </div>
   </div>
 
+  <!-- 23b -->
   <div class="example">
-    <div class="ex-head">Example — Problem 23b: \((x-7)^2 + y^2 = 49\)</div>
+    <div class="ex-head">Example — Problem 23b: \((x-7)^2 + y^2 = 49\) (Algorithm C)</div>
     <div class="ex-body">
-      <p>Expand: \(x^2 - 14x + 49 + y^2 = 49 \;\Rightarrow\; x^2+y^2 - 14x = 0\)</p>
-      <p>Replace: \(r^2 - 14r\cos\theta = 0\)</p>
-      <p>Factor &amp; divide by \(r\): <strong>\(r = 14\cos\theta\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 1]</span> Expand and look for \(x^2 + y^2\).
+        <div class="math-block">\[(x-7)^2 + y^2 = 49\]</div>
+        <div class="math-block">\[x^2 - 14x + 49 + y^2 = 49\]</div>
+        <div class="math-block">\[x^2 + y^2 - 14x = 0\]</div>
+        <p>Replace \(x^2+y^2 \to r^2\):</p>
+        <div class="math-block">\[r^2 - 14x = 0\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 2]</span> Replace the remaining \(x\) with \(r\cos\theta\).
+        <div class="math-block">\[r^2 - 14r\cos\theta = 0\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 3]</span> Factor.
+        <div class="math-block">\[r(r - 14\cos\theta) = 0\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 4]</span> Divide by \(r\).
+        <div class="answer">\[r = 14\cos\theta\]</div>
+        <p><em>Sanity check:</em> Standard form \(r=a\cos\theta\) → circle centered at \((7,0)\) with radius 7. Matches original.</p>
+      </div>
     </div>
   </div>
 
+  <!-- 23c -->
   <div class="example">
-    <div class="ex-head">Example — Problem 23c: \(x^2 + y^2 = 16x\)</div>
+    <div class="ex-head">Example — Problem 23c: \(x^2 + y^2 = 16x\) (Algorithm C)</div>
     <div class="ex-body">
-      <p>Replace \(x^2+y^2\to r^2\) and \(x\to r\cos\theta\): \(\;r^2 = 16r\cos\theta\)</p>
-      <p>Divide by \(r\): <strong>\(r = 16\cos\theta\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 1]</span> \(x^2+y^2\) is already visible on the left. Immediately replace it.
+        <div class="math-block">\[r^2 = 16x\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 2]</span> Replace \(x\) with \(r\cos\theta\).
+        <div class="math-block">\[r^2 = 16r\cos\theta\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 3–4]</span> The right side already has a factor of \(r\). Divide both sides by \(r\).
+        <div class="answer">\[r = 16\cos\theta\]</div>
+      </div>
     </div>
   </div>
 
+  <!-- 23d -->
   <div class="example">
-    <div class="ex-head">Example — Problem 23d: \(x^2 + y^2 - 24y = 0\)</div>
+    <div class="ex-head">Example — Problem 23d: \(x^2 + y^2 - 24y = 0\) (Algorithm C)</div>
     <div class="ex-body">
-      <p>Replace: \(r^2 - 24r\sin\theta = 0 \;\Rightarrow\; r(r-24\sin\theta)=0\)</p>
-      <p><strong>Answer: \(r = 24\sin\theta\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 1]</span> \(x^2+y^2\) is already visible. Replace it.
+        <div class="math-block">\[r^2 - 24y = 0\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Step 2]</span> Replace \(y\) with \(r\sin\theta\).
+        <div class="math-block">\[r^2 - 24r\sin\theta = 0\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg C, Steps 3–5]</span> Factor, divide by \(r\).
+        <div class="answer">\[r = 24\sin\theta\]</div>
+      </div>
     </div>
   </div>
 
   <hr class="thin">
 
+  <!-- Algorithm D -->
   <div class="sub">
     <h3>Algorithm D — Polar Equation → Rectangular</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
         <li>Multiply both sides by \(r\) if needed to create \(r^2\), \(r\cos\theta\), or \(r\sin\theta\) terms.</li>
-        <li>Replace: \(r^2 \to x^2+y^2\), \(\;r\cos\theta \to x\), \(\;r\sin\theta \to y\).</li>
-        <li>Simplify. If it's a circle, complete the square to find center and radius.</li>
+        <li>Replace: \(r^2 \to x^2+y^2\),&ensp;\(r\cos\theta \to x\),&ensp;\(r\sin\theta \to y\).</li>
+        <li>Simplify. If it is a circle, complete the square to find center and radius.</li>
       </ol>
     </div>
   </div>
@@ -482,6 +464,32 @@
     <div class="math-line">\(r = a\) <span class="math-desc">→ circle: centered at origin, radius \(a\)</span></div>
     <div class="math-line">\(\theta = c\) <span class="math-desc">→ line through origin at angle \(c\)</span></div>
   </div>
+
+  <!-- Polar to Rect example -->
+  <div class="example">
+    <div class="ex-head">Example — Convert \(r = 6\sin\theta\) to Rectangular (Algorithm D)</div>
+    <div class="ex-body">
+      <p><span class="given-label">Given:</span> \(r = 6\sin\theta\). Notice \(r\sin\theta\) is not yet isolated because there is a bare \(r\) on the left.</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg D, Step 1]</span> Multiply both sides by \(r\) to manufacture \(r^2\) and \(r\sin\theta\).
+        <div class="math-block">\[r \cdot r = r \cdot 6\sin\theta \;\Longrightarrow\; r^2 = 6r\sin\theta\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg D, Step 2]</span> Replace \(r^2 \to x^2+y^2\) and \(r\sin\theta \to y\).
+        <div class="math-block">\[x^2 + y^2 = 6y\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg D, Step 3]</span> Complete the square to identify the circle.
+        <div class="math-block">\[x^2 + y^2 - 6y = 0\]</div>
+        <div class="math-block">\[x^2 + (y^2 - 6y + 9) = 9 \qquad\left(\text{add }\left(\tfrac{6}{2}\right)^2 = 9\text{ to both sides}\right)\]</div>
+        <div class="answer">\[x^2 + (y - 3)^2 = 9\]</div>
+        <p>Circle centered at \((0,\,3)\) with radius \(3\) — consistent with \(r=a\sin\theta\): center \(\!\left(0,\tfrac{a}{2}\right)=(0,3)\), radius \(\tfrac{a}{2}=3\). <span class="chk">✓</span></p>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -492,84 +500,151 @@
   <div class="sec-header">
     <span class="sec-badge">§ 3</span>
     <h2>Identifying &amp; Graphing Polar Curves</h2>
+    <a href="#" class="back-top">↑ top</a>
   </div>
 
   <table>
     <thead>
-      <tr><th>Equation Form</th><th>Curve Type</th><th>Key Features</th><th>Worksheet Examples</th></tr>
+      <tr><th>Equation Form</th><th>Curve Type</th><th>Key Features</th><th>Examples</th></tr>
     </thead>
     <tbody>
       <tr>
-        <td>\(r = a\)</td>
-        <td>Circle</td>
-        <td>Centered at origin, radius \(a\)</td>
-        <td>Prob 27: \(r=3\)</td>
+        <td>\(r = a\)</td><td>Circle</td><td>Centered at origin, radius \(a\)</td><td>Prob 27: \(r=3\)</td>
       </tr>
       <tr>
-        <td>\(r = a\cos\theta\) or \(a\sin\theta\)</td>
-        <td>Circle</td>
-        <td>Passes through origin</td>
-        <td>22A, 22F</td>
+        <td>\(r = a\cos\theta\) or \(a\sin\theta\)</td><td>Circle</td><td>Passes through origin</td><td>22A, 22F</td>
       </tr>
       <tr>
-        <td>\(r = a \pm b\cos\theta,\;\tfrac{a}{b}=1\)</td>
-        <td>Cardioid</td>
-        <td>Heart-shaped, passes through origin</td>
-        <td>22B, 22C</td>
+        <td>\(r = a \pm b\cos\theta,\;\tfrac{a}{b}=1\)</td><td>Cardioid</td><td>Heart-shaped, through origin</td><td>22B, 22C</td>
       </tr>
       <tr>
-        <td>\(r = a \pm b\cos\theta,\;\tfrac{a}{b}>1\)</td>
-        <td>Limaçon (no inner loop)</td>
-        <td>Dimpled or convex</td>
-        <td>—</td>
+        <td>\(r = a \pm b\cos\theta,\;\tfrac{a}{b}>1\)</td><td>Limaçon (no inner loop)</td><td>Dimpled or convex</td><td>—</td>
       </tr>
       <tr>
-        <td>\(r = a \pm b\cos\theta,\;\tfrac{a}{b}<1\)</td>
-        <td>Limaçon with inner loop</td>
-        <td>Inner loop where \(r < 0\)</td>
-        <td>26a, 26b</td>
+        <td>\(r = a \pm b\cos\theta,\;\tfrac{a}{b}<1\)</td><td>Limaçon with inner loop</td><td>Inner loop where \(r < 0\)</td><td>26a, 26b</td>
       </tr>
       <tr>
-        <td>\(r = a\cos(n\theta)\) or \(a\sin(n\theta)\)</td>
-        <td>Rose / Flower</td>
-        <td>\(n\) petals if \(n\) odd; \(2n\) petals if \(n\) even</td>
-        <td>22D, Probs 24 &amp; 25</td>
+        <td>\(r = a\cos(n\theta)\) or \(a\sin(n\theta)\)</td><td>Rose / Flower</td><td>\(n\) odd: \(n\) petals; \(n\) even: \(2n\) petals</td><td>22D, 24, 25</td>
       </tr>
     </tbody>
   </table>
 
+  <!-- Algorithm E -->
   <div class="sub">
     <h3>Algorithm E — Graphing a Polar Curve</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
-        <li><strong>Classify</strong> the curve using the table above.</li>
-        <li><strong>Find zeros:</strong> Set \(r=0\) and solve for \(\theta\). These are the angles where the curve passes through the origin.</li>
-        <li><strong>Find max \(|r|\):</strong> The amplitude is the coefficient \(a\) in front of the trig function.</li>
-        <li><strong>Build a table</strong> of \((\theta, r)\) at \(\theta = 0,\,\tfrac{\pi}{6},\,\tfrac{\pi}{4},\,\tfrac{\pi}{3},\,\tfrac{\pi}{2},\,\ldots,\,2\pi\).</li>
-        <li><strong>Check symmetry:</strong>
-          <ul>
-            <li>Replace \(\theta \to -\theta\): if \(r\) unchanged → symmetric about polar axis.</li>
-            <li>Replace \(\theta \to \pi-\theta\): if \(r\) unchanged → symmetric about \(\theta=\tfrac{\pi}{2}\).</li>
-            <li>Replace \(r \to -r\): if equation unchanged → symmetric about the pole.</li>
-          </ul>
-        </li>
-        <li><strong>Plot</strong> the \((r,\theta)\) pairs and connect smoothly.</li>
-        <li><strong>Inner loops</strong> appear when \(r < 0\) — the curve traces behind the pole.</li>
+        <li><strong>Classify</strong> using the table above.</li>
+        <li><strong>Find zeros:</strong> Set \(r=0\) and solve for \(\theta\).</li>
+        <li><strong>Find max \(|r|\):</strong> amplitude = leading coefficient.</li>
+        <li><strong>Build a table</strong> at key angles \(0,\tfrac{\pi}{6},\tfrac{\pi}{4},\tfrac{\pi}{3},\tfrac{\pi}{2},\ldots\)</li>
+        <li><strong>Check symmetry</strong> (replace \(\theta\to-\theta\); \(\theta\to\pi-\theta\); \(r\to-r\)).</li>
+        <li><strong>Plot</strong> and connect smoothly. Inner loops appear where \(r<0\).</li>
       </ol>
     </div>
   </div>
 
-  <div class="sub">
-    <h3>Rose Curve Details — Problems 24 &amp; 25</h3>
-    <div class="fbox">
-      <div class="fbox-label">Rose Curve Rules</div>
-      <div class="math-line">\(r = a\cos(n\theta)\): \(\;n\) odd → \(n\) petals; \(n\) even → \(2n\) petals</div>
-      <div class="math-line">Petal tips at \(n\theta = 0,\,\pi,\,2\pi,\ldots\) (for cosine form), where \(|r| = a\)</div>
-      <div class="math-line">Petal tip angles for sine: \(n\theta = \tfrac{\pi}{2},\,\tfrac{3\pi}{2},\ldots\)</div>
+  <!-- Problem 24: r = 2cos(3θ) -->
+  <div class="example">
+    <div class="ex-head">Example — Problem 24: Graph \(r = 2\cos(3\theta)\) (Algorithm E)</div>
+    <div class="ex-body">
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 1]</span> Classify the curve.
+        <p>The equation has the form \(r = a\cos(n\theta)\) with \(a=2\) and \(n=3\) (odd). By the table: <strong>3-petal rose curve</strong>.</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 2]</span> Find zeros (where the curve passes through the origin).
+        <div class="math-block">\[2\cos(3\theta) = 0 \;\Rightarrow\; \cos(3\theta) = 0 \;\Rightarrow\; 3\theta = \frac{\pi}{2}+k\pi \;\Rightarrow\; \theta = \frac{\pi}{6}+\frac{k\pi}{3},\quad k\in\mathbb{Z}\]</div>
+        <p>In \([0,\pi]\): \(\theta = \tfrac{\pi}{6},\,\tfrac{\pi}{2},\,\tfrac{5\pi}{6}\). These are the angles at which the curve crosses the origin (petal boundaries).</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 3]</span> Find maximum \(|r|\).
+        <p>\(|r|_{\max} = |a| = 2\). The tips of the petals reach \(r = 2\).</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 4]</span> Build a table of key values.
+        <table>
+          <thead><tr><th>\(\theta\)</th><th>\(3\theta\)</th><th>\(r = 2\cos(3\theta)\)</th></tr></thead>
+          <tbody>
+            <tr><td>\(0\)</td><td>\(0\)</td><td>\(2\)</td></tr>
+            <tr><td>\(\pi/6\)</td><td>\(\pi/2\)</td><td>\(0\)</td></tr>
+            <tr><td>\(\pi/3\)</td><td>\(\pi\)</td><td>\(-2\)</td></tr>
+            <tr><td>\(\pi/2\)</td><td>\(3\pi/2\)</td><td>\(0\)</td></tr>
+            <tr><td>\(2\pi/3\)</td><td>\(2\pi\)</td><td>\(2\)</td></tr>
+            <tr><td>\(5\pi/6\)</td><td>\(5\pi/2\)</td><td>\(0\)</td></tr>
+            <tr><td>\(\pi\)</td><td>\(3\pi\)</td><td>\(-2\)</td></tr>
+          </tbody>
+        </table>
+        <p><em>Note:</em> Negative \(r\) values mean the point is plotted <em>opposite</em> the direction \(\theta\) points — this traces the petals on the other side of the pole.</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 5]</span> Check symmetry.
+        <p>Replace \(\theta \to -\theta\): \(r = 2\cos(3(-\theta)) = 2\cos(-3\theta) = 2\cos(3\theta)\) — unchanged. <strong>Symmetric about the polar axis.</strong></p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 6]</span> Sketch.
+        <p>Three petals: one centered on the positive \(x\)-axis at \(\theta=0\), one at \(\theta=\tfrac{2\pi}{3}\), one at \(\theta=\tfrac{4\pi}{3}\). Each petal tip is at \(r=2\).</p>
+        <p><strong>Result:</strong> 3-petal rose, max radius 2, petal tips at \(\theta = 0,\,\tfrac{2\pi}{3},\,\tfrac{4\pi}{3}\).</p>
+      </div>
     </div>
-    <p><strong>Problem 24:</strong> \(r = 2\cos(3\theta)\) → 3-petal rose (\(n=3\), odd). Petals centered at \(\theta = 0,\,\tfrac{2\pi}{3},\,\tfrac{4\pi}{3}\).</p>
-    <p><strong>Problem 25:</strong> \(r = 2\sin(2\theta)\) → 4-petal rose (\(n=2\), even). Petals at \(\theta = \tfrac{\pi}{4},\,\tfrac{3\pi}{4},\,\tfrac{5\pi}{4},\,\tfrac{7\pi}{4}\).</p>
+  </div>
+
+  <!-- Problem 25: r = 2sin(2θ) -->
+  <div class="example">
+    <div class="ex-head">Example — Problem 25: Graph \(r = 2\sin(2\theta)\) (Algorithm E)</div>
+    <div class="ex-body">
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 1]</span> Classify.
+        <p>Form is \(r = a\sin(n\theta)\) with \(a=2\), \(n=2\) (even). By the table: <strong>4-petal rose</strong> (\(2n = 4\) petals).</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 2]</span> Find zeros.
+        <div class="math-block">\[2\sin(2\theta)=0 \;\Rightarrow\; \sin(2\theta)=0 \;\Rightarrow\; 2\theta = k\pi \;\Rightarrow\; \theta = 0,\,\frac{\pi}{2},\,\pi,\,\frac{3\pi}{2}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 3]</span> Max \(|r| = 2\) (petal tips).
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 4]</span> Table of key values.
+        <table>
+          <thead><tr><th>\(\theta\)</th><th>\(2\theta\)</th><th>\(r = 2\sin(2\theta)\)</th></tr></thead>
+          <tbody>
+            <tr><td>\(0\)</td><td>\(0\)</td><td>\(0\)</td></tr>
+            <tr><td>\(\pi/4\)</td><td>\(\pi/2\)</td><td>\(2\)</td></tr>
+            <tr><td>\(\pi/2\)</td><td>\(\pi\)</td><td>\(0\)</td></tr>
+            <tr><td>\(3\pi/4\)</td><td>\(3\pi/2\)</td><td>\(-2\)</td></tr>
+            <tr><td>\(\pi\)</td><td>\(2\pi\)</td><td>\(0\)</td></tr>
+            <tr><td>\(5\pi/4\)</td><td>\(5\pi/2\)</td><td>\(2\)</td></tr>
+            <tr><td>\(3\pi/2\)</td><td>\(3\pi\)</td><td>\(0\)</td></tr>
+            <tr><td>\(7\pi/4\)</td><td>\(7\pi/2\)</td><td>\(-2\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 5]</span> Symmetry.
+        <p>Replace \(\theta\to\pi-\theta\): \(\sin(2(\pi-\theta))=\sin(2\pi-2\theta)=\sin(-2\theta)=-\sin(2\theta)\). So \(r\to-r\), which traces the same curve. <strong>Symmetric about \(\theta=\tfrac{\pi}{2}\)</strong> and the polar axis.</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg E, Step 6]</span> Four petals with tips at \(\theta = \tfrac{\pi}{4},\,\tfrac{3\pi}{4},\,\tfrac{5\pi}{4},\,\tfrac{7\pi}{4}\), each reaching \(|r|=2\).
+      </div>
+    </div>
+  </div>
+
+  <div class="fbox">
+    <div class="fbox-label">Rose Curve Rules</div>
+    <div class="math-line">\(r = a\cos(n\theta)\): \(\;n\) odd → \(n\) petals;&ensp;\(n\) even → \(2n\) petals</div>
+    <div class="math-line">Petal tips at \(n\theta = 0,\,\pi,\,2\pi,\ldots\) (cosine);&ensp;\(n\theta = \tfrac{\pi}{2},\,\tfrac{3\pi}{2},\ldots\) (sine)</div>
   </div>
 </div>
 
@@ -581,6 +656,7 @@
   <div class="sec-header">
     <span class="sec-badge">§ 4</span>
     <h2>Areas of Polar Regions</h2>
+    <a href="#" class="back-top">↑ top</a>
   </div>
 
   <div class="fbox">
@@ -602,27 +678,29 @@
     <div class="math-line">\(\cos^2(n\theta) = \dfrac{1+\cos(2n\theta)}{2}\)</div>
   </div>
 
+  <!-- Algorithm F -->
   <div class="sub">
     <h3>Algorithm F — Area Enclosed by a Single Polar Curve</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
         <li>Identify \(r = f(\theta)\).</li>
-        <li>Find limits \(\alpha\) and \(\beta\) by setting \(r=0\) and solving — these are the boundary angles.</li>
-        <li>Use symmetry if applicable (integrate half the interval, then double).</li>
+        <li>Find limits \(\alpha\) and \(\beta\) by setting \(r=0\) and solving.</li>
+        <li>Use symmetry if applicable (integrate half, then double).</li>
         <li>Set up \(\displaystyle A = \frac{1}{2}\int_{\alpha}^{\beta} r^2\,d\theta\).</li>
-        <li>Expand \(r^2\), apply power-reduction identities for any \(\cos^2\) or \(\sin^2\) terms.</li>
+        <li>Expand \(r^2\) and apply power-reduction identities for \(\cos^2\) or \(\sin^2\) terms.</li>
         <li>Integrate term by term and evaluate.</li>
       </ol>
     </div>
   </div>
 
+  <!-- Algorithm G -->
   <div class="sub">
     <h3>Algorithm G — Area of ONE Petal (Rose Curve)</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
-        <li>Set \(r=0\): \(a\cos(n\theta)=0 \Rightarrow n\theta = \tfrac{\pi}{2} \Rightarrow \theta = \tfrac{\pi}{2n}\). One petal spans \(\left[-\tfrac{\pi}{2n},\,\tfrac{\pi}{2n}\right]\).</li>
+        <li>Set \(r=0\): \(a\cos(n\theta)=0 \Rightarrow \theta = \tfrac{\pi}{2n}\). One petal spans \(\left[-\tfrac{\pi}{2n},\,\tfrac{\pi}{2n}\right]\).</li>
         <li>By symmetry: \(\displaystyle A_{\text{petal}} = 2\cdot\frac{1}{2}\int_{0}^{\pi/(2n)} r^2\,d\theta = \int_{0}^{\pi/(2n)} a^2\cos^2(n\theta)\,d\theta\).</li>
         <li>Apply \(\cos^2(n\theta) = \tfrac{1+\cos(2n\theta)}{2}\), integrate, evaluate.</li>
         <li>Total area = (number of petals) \(\times\; A_{\text{petal}}\).</li>
@@ -630,30 +708,97 @@
     </div>
   </div>
 
+  <!-- Problem 24 area -->
   <div class="example">
-    <div class="ex-head">Example — Total area enclosed by \(r = 2\cos(3\theta)\) [Problem 24]</div>
+    <div class="ex-head">Example — Total Area Enclosed by \(r = 2\cos(3\theta)\) [Problem 24] (Algorithms F &amp; G)</div>
     <div class="ex-body">
-      <p>One petal: \(\cos(3\theta)=0 \Rightarrow \theta = \tfrac{\pi}{6}\). Petal: \(\left[-\tfrac{\pi}{6},\,\tfrac{\pi}{6}\right]\).</p>
-      <div class="math-block">\[A_{\text{petal}} = \int_0^{\pi/6} 4\cos^2(3\theta)\,d\theta = \int_0^{\pi/6} 2\bigl[1+\cos(6\theta)\bigr]\,d\theta\]</div>
-      <div class="math-block">\[= \left[2\theta + \frac{\sin(6\theta)}{3}\right]_0^{\pi/6} = \frac{\pi}{3}\]</div>
-      <p>3 petals total → <strong>Total Area \(= 3\cdot\dfrac{\pi}{3} = \pi\)</strong></p>
+      <p><strong>Goal:</strong> Find the total area enclosed by the 3-petal rose \(r = 2\cos(3\theta)\).</p>
+      <p><strong>Strategy:</strong> Use Algorithm G — compute the area of one petal, then multiply by 3.</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg G, Step 1]</span> Find the angular bounds of one petal. Set \(r = 0\):
+        <div class="math-block">\[2\cos(3\theta) = 0 \;\Rightarrow\; \cos(3\theta) = 0 \;\Rightarrow\; 3\theta = \frac{\pi}{2} \;\Rightarrow\; \theta = \frac{\pi}{6}\]</div>
+        <p>One petal sweeps from \(\theta = -\tfrac{\pi}{6}\) to \(\theta = \tfrac{\pi}{6}\) (symmetric about \(\theta=0\)).</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg G, Step 2]</span> Apply symmetry — integrate from \(0\) to \(\tfrac{\pi}{6}\) and double.
+        <div class="math-block">\[A_{\text{petal}} = 2\cdot\frac{1}{2}\int_{0}^{\pi/6} r^2\,d\theta = \int_{0}^{\pi/6} \bigl[2\cos(3\theta)\bigr]^2\,d\theta = \int_{0}^{\pi/6} 4\cos^2(3\theta)\,d\theta\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg G, Step 3]</span> Apply the power-reduction identity \(\cos^2(3\theta) = \dfrac{1+\cos(6\theta)}{2}\).
+        <div class="math-block">\[A_{\text{petal}} = \int_{0}^{\pi/6} 4\cdot\frac{1+\cos(6\theta)}{2}\,d\theta = \int_{0}^{\pi/6} 2\bigl[1 + \cos(6\theta)\bigr]\,d\theta\]</div>
+        <p>Split the integral:</p>
+        <div class="math-block">\[A_{\text{petal}} = 2\int_{0}^{\pi/6} 1\,d\theta + 2\int_{0}^{\pi/6}\cos(6\theta)\,d\theta\]</div>
+        <p>Evaluate each part:</p>
+        <div class="math-block">\[2\int_{0}^{\pi/6} 1\,d\theta = 2\left[\theta\right]_0^{\pi/6} = 2\cdot\frac{\pi}{6} = \frac{\pi}{3}\]</div>
+        <div class="math-block">\[2\int_{0}^{\pi/6}\cos(6\theta)\,d\theta = 2\left[\frac{\sin(6\theta)}{6}\right]_0^{\pi/6} = \frac{1}{3}\left[\sin(\pi) - \sin(0)\right] = 0\]</div>
+        <p>So: \(A_{\text{petal}} = \dfrac{\pi}{3} + 0 = \dfrac{\pi}{3}\)</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg G, Step 4]</span> Multiply by the number of petals (3).
+        <div class="answer">\[A_{\text{total}} = 3 \cdot \frac{\pi}{3} = \pi\]</div>
+      </div>
     </div>
   </div>
 
+  <!-- Algorithm H -->
   <div class="sub">
     <h3>Algorithm H — Inner Loop Area (Limaçon)</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
         <li>Confirm \(\tfrac{a}{b} < 1\) (inner loop exists).</li>
-        <li>Find bounds: set \(r=0\), e.g. \(a + b\cos\theta=0 \Rightarrow \cos\theta = -\tfrac{a}{b}\). Let solutions be \(\theta_1\) and \(\theta_2\) (the loop's angular span).</li>
+        <li>Find bounds: set \(r=0\), solve \(a + b\cos\theta=0 \Rightarrow \cos\theta = -\tfrac{a}{b}\). Call solutions \(\theta_1,\theta_2\).</li>
         <li>The inner loop is traced on \([\theta_1, \theta_2]\) where \(r \le 0\).</li>
-        <li>Set up: \(\displaystyle A_{\text{inner}} = \frac{1}{2}\int_{\theta_1}^{\theta_2} r^2\,d\theta\). Note \(r^2\) is always \(\ge 0\).</li>
+        <li>Set up: \(\displaystyle A_{\text{inner}} = \frac{1}{2}\int_{\theta_1}^{\theta_2} r^2\,d\theta\).</li>
         <li>Expand and integrate using trig identities.</li>
       </ol>
     </div>
   </div>
 
+  <!-- Problem 26a -->
+  <div class="example">
+    <div class="ex-head">Example — Inner Loop Area of \(r = 1 + 2\cos\theta\) [Problem 26a] (Algorithm H)</div>
+    <div class="ex-body">
+      <p><span class="given-label">Given:</span> \(r = 1 + 2\cos\theta\). Here \(a = 1\), \(b = 2\).</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg H, Step 1]</span> Check for inner loop: \(\dfrac{a}{b} = \dfrac{1}{2} < 1\). <strong>Yes, an inner loop exists.</strong>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg H, Step 2]</span> Find the angular bounds of the inner loop. Set \(r = 0\):
+        <div class="math-block">\[1 + 2\cos\theta = 0 \;\Rightarrow\; \cos\theta = -\frac{1}{2} \;\Rightarrow\; \theta = \frac{2\pi}{3} \text{ and } \theta = \frac{4\pi}{3}\]</div>
+        <p>The inner loop is traced for \(\theta \in \left[\tfrac{2\pi}{3},\,\tfrac{4\pi}{3}\right]\) (where \(r\le 0\)).</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg H, Step 3]</span> Set up the integral. Note that \(r^2 \ge 0\) regardless of the sign of \(r\).
+        <div class="math-block">\[A_{\text{inner}} = \frac{1}{2}\int_{2\pi/3}^{4\pi/3} (1+2\cos\theta)^2\,d\theta\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg H, Step 4]</span> Expand \((1+2\cos\theta)^2 = 1 + 4\cos\theta + 4\cos^2\theta\).
+        <p>Apply \(\cos^2\theta = \tfrac{1+\cos(2\theta)}{2}\):</p>
+        <div class="math-block">\[= 1 + 4\cos\theta + 4\cdot\frac{1+\cos(2\theta)}{2} = 1 + 4\cos\theta + 2 + 2\cos(2\theta) = 3 + 4\cos\theta + 2\cos(2\theta)\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg H, Step 5]</span> Integrate term by term.
+        <div class="math-block">\[A_{\text{inner}} = \frac{1}{2}\int_{2\pi/3}^{4\pi/3}\!\bigl[3 + 4\cos\theta + 2\cos(2\theta)\bigr]\,d\theta\]</div>
+        <div class="math-block">\[= \frac{1}{2}\left[3\theta + 4\sin\theta + \sin(2\theta)\right]_{2\pi/3}^{4\pi/3}\]</div>
+        <div class="math-block">\[= \frac{1}{2}\!\left[\left(4\pi + 4\sin\tfrac{4\pi}{3}+\sin\tfrac{8\pi}{3}\right) - \left(2\pi + 4\sin\tfrac{2\pi}{3}+\sin\tfrac{4\pi}{3}\right)\right]\]</div>
+        <div class="math-block">\[= \frac{1}{2}\!\left[\left(4\pi - 2\sqrt{3} - \tfrac{\sqrt{3}}{2}\right) - \left(2\pi + 2\sqrt{3} + \left(-\tfrac{\sqrt{3}}{2}\right)\right)\right]\]</div>
+        <div class="math-block">\[= \frac{1}{2}\!\left[2\pi - 4\sqrt{3}\right]\]</div>
+        <div class="answer">\[A_{\text{inner}} = \pi - 2\sqrt{3}\]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Algorithm I -->
   <div class="sub">
     <h3>Algorithm I — Outer Loop &amp; Area Between Loops</h3>
     <div class="algo">
@@ -666,12 +811,13 @@
     </div>
   </div>
 
+  <!-- Algorithm J -->
   <div class="sub">
-    <h3>Algorithm J — Area Between Two Polar Curves [Problem 27]</h3>
+    <h3>Algorithm J — Area Between Two Polar Curves</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
-        <li>Find intersections: set \(r_1 = r_2\) and solve for \(\theta\). Also check whether both curves pass through the origin.</li>
+        <li>Find intersections: set \(r_1 = r_2\) and solve for \(\theta\). Also check if both pass through the origin.</li>
         <li>Determine which is the outer curve (larger \(|r|\)) on each sub-interval.</li>
         <li>Set up: \(\displaystyle A = \frac{1}{2}\int_{\alpha}^{\beta}\!\left[r_{\text{outer}}^2 - r_{\text{inner}}^2\right]d\theta\).</li>
         <li>Integrate and evaluate.</li>
@@ -679,16 +825,46 @@
     </div>
   </div>
 
+  <!-- Problem 27 -->
   <div class="example">
-    <div class="ex-head">Example — Problem 27: \(r = 3\) and \(r = 3 - 3\cos\theta\)</div>
+    <div class="ex-head">Example — Problem 27: Area Between \(r=3\) and \(r=3-3\cos\theta\) (Algorithm J)</div>
     <div class="ex-body">
-      <p>Intersection: \(3 = 3-3\cos\theta \Rightarrow \cos\theta = 0 \Rightarrow \theta = \tfrac{\pi}{2},\,\tfrac{3\pi}{2}\).</p>
-      <p><strong>(a) Area between both curves:</strong></p>
-      <div class="math-block">\[A = \frac{1}{2}\int_{-\pi/2}^{\pi/2}\!\left[9 - (3-3\cos\theta)^2\right]d\theta\]</div>
-      <p><strong>(b) Inside \(r=3\), outside \(r=3-3\cos\theta\):</strong> outer = \(r=3\) on \(\left[-\tfrac{\pi}{2},\tfrac{\pi}{2}\right]\)</p>
-      <div class="math-block">\[A = \frac{1}{2}\int_{-\pi/2}^{\pi/2}\!\left[9 - (3-3\cos\theta)^2\right]d\theta\]</div>
-      <p><strong>(c) Inside \(r=3-3\cos\theta\), outside \(r=3\):</strong> outer = \(r=3-3\cos\theta\) on \(\left[\tfrac{\pi}{2},\tfrac{3\pi}{2}\right]\)</p>
-      <div class="math-block">\[A = \frac{1}{2}\int_{\pi/2}^{3\pi/2}\!\left[(3-3\cos\theta)^2 - 9\right]d\theta\]</div>
+      <p><span class="given-label">Given:</span> \(r_1 = 3\) (circle, radius 3 centered at origin) and \(r_2 = 3-3\cos\theta\) (cardioid, since \(\tfrac{a}{b}=1\)).</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg J, Step 1]</span> Find intersections. Set \(r_1 = r_2\):
+        <div class="math-block">\[3 = 3 - 3\cos\theta \;\Rightarrow\; 0 = -3\cos\theta \;\Rightarrow\; \cos\theta = 0 \;\Rightarrow\; \theta = \frac{\pi}{2},\;\frac{3\pi}{2}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg J, Step 2]</span> Determine which curve is outer on each interval.
+        <p>On \(\theta \in \left[-\tfrac{\pi}{2},\,\tfrac{\pi}{2}\right]\) (right half, where \(\cos\theta > 0\)): \(3-3\cos\theta < 3\), so \(r_1=3\) is outer.</p>
+        <p>On \(\theta \in \left[\tfrac{\pi}{2},\,\tfrac{3\pi}{2}\right]\) (left half, where \(\cos\theta < 0\)): \(3-3\cos\theta > 3\), so \(r_2=3-3\cos\theta\) is outer.</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg J, Steps 3–4]</span>
+
+        <p><strong>(b) Inside \(r=3\), outside the cardioid</strong> — \(\theta\in[-\tfrac{\pi}{2},\tfrac{\pi}{2}]\), outer \(= r=3\):</p>
+        <div class="math-block">\[A = \frac{1}{2}\int_{-\pi/2}^{\pi/2}\!\left[9 - (3-3\cos\theta)^2\right]d\theta\]</div>
+        <p>Expand: \((3-3\cos\theta)^2 = 9 - 18\cos\theta + 9\cos^2\theta\), so:</p>
+        <div class="math-block">\[9 - (9 - 18\cos\theta + 9\cos^2\theta) = 18\cos\theta - 9\cos^2\theta\]</div>
+        <p>Apply \(\cos^2\theta = \tfrac{1+\cos(2\theta)}{2}\):</p>
+        <div class="math-block">\[= 18\cos\theta - \frac{9}{2}(1+\cos(2\theta))\]</div>
+        <p>Integrate using symmetry about \(\theta=0\) (double the integral from \(0\) to \(\tfrac{\pi}{2}\)):</p>
+        <div class="math-block">\[A = \frac{1}{2}\cdot 2\int_{0}^{\pi/2}\!\left[18\cos\theta - \frac{9}{2} - \frac{9}{2}\cos(2\theta)\right]d\theta\]</div>
+        <div class="math-block">\[= \left[18\sin\theta - \frac{9}{2}\theta - \frac{9}{4}\sin(2\theta)\right]_0^{\pi/2}\]</div>
+        <div class="math-block">\[= \left(18 - \frac{9\pi}{4} - 0\right) - (0)\]</div>
+        <div class="answer">\[A_b = 18 - \frac{9\pi}{4}\]</div>
+
+        <p style="margin-top:14px;"><strong>(c) Inside cardioid, outside \(r=3\)</strong> — \(\theta\in[\tfrac{\pi}{2},\tfrac{3\pi}{2}]\), outer \(= r=3-3\cos\theta\):</p>
+        <div class="math-block">\[A = \frac{1}{2}\int_{\pi/2}^{3\pi/2}\!\left[(3-3\cos\theta)^2 - 9\right]d\theta\]</div>
+        <p>By the same expansion (sign reversed):</p>
+        <div class="math-block">\[(3-3\cos\theta)^2 - 9 = -18\cos\theta + 9\cos^2\theta = -18\cos\theta + \frac{9}{2}(1+\cos(2\theta))\]</div>
+        <div class="math-block">\[A = \frac{1}{2}\left[-18\sin\theta + \frac{9}{2}\theta + \frac{9}{4}\sin(2\theta)\right]_{\pi/2}^{3\pi/2}\]</div>
+        <div class="math-block">\[= \frac{1}{2}\!\left[\left(18 + \frac{27\pi}{4} + 0\right)-\left(-18+\frac{9\pi}{4}+0\right)\right] = \frac{1}{2}\left[36 + \frac{18\pi}{4}\right]\]</div>
+        <div class="answer">\[A_c = 18 + \frac{9\pi}{4}\]</div>
+      </div>
     </div>
   </div>
 </div>
@@ -701,61 +877,129 @@
   <div class="sec-header">
     <span class="sec-badge">§ 5</span>
     <h2>Parametric Curves ↔ Algebraic Equations</h2>
+    <a href="#" class="back-top">↑ top</a>
   </div>
 
+  <!-- Algorithm K -->
   <div class="sub">
     <h3>Algorithm K — Eliminate the Parameter</h3>
     <div class="algo">
       <div class="algo-label">Choose the Right Strategy</div>
       <ol>
-        <li><strong>Strategy 1 — Direct substitution:</strong> Solve one equation for \(t\), substitute into the other.</li>
-        <li><strong>Strategy 2 — Pythagorean trig identity:</strong> If \(x = a\cos t\), \(y = b\sin t\), then \(\left(\tfrac{x}{a}\right)^2 + \left(\tfrac{y}{b}\right)^2 = \cos^2 t + \sin^2 t = 1\).</li>
-        <li><strong>Strategy 3 — Secant/Tangent identity:</strong> If \(x = \sec^2 t\) and \(y\) involves \(\tan t\), use \(\sec^2 t - \tan^2 t = 1\).</li>
-        <li><strong>Strategy 4 — Exponential:</strong> If \(x = e^t\) and \(y = e^{kt}\), then \(y = x^k\).</li>
-        <li><strong>Strategy 5 — Power:</strong> If \(x = t^m\) and \(y = t^n\), then \(y = x^{n/m}\).</li>
-        <li>State restrictions on \(x\) and/or \(y\) imposed by the parameter domain.</li>
+        <li><strong>Strategy 1 — Direct substitution:</strong> Solve one equation for \(t\), substitute.</li>
+        <li><strong>Strategy 2 — Pythagorean identity:</strong> If \(x=a\cos t\), \(y=b\sin t\): \(\left(\tfrac{x}{a}\right)^2+\left(\tfrac{y}{b}\right)^2=1\).</li>
+        <li><strong>Strategy 3 — Secant/Tangent identity:</strong> If \(x=\sec^2 t\), use \(\sec^2 t - \tan^2 t = 1\).</li>
+        <li><strong>Strategy 4 — Exponential:</strong> If \(x=e^t\), \(y=e^{kt}\): \(y=x^k\).</li>
+        <li><strong>Strategy 5 — Power:</strong> If \(x=t^m\), \(y=t^n\): \(y=x^{n/m}\).</li>
+        <li>Always state the restriction on \(x\) from the parameter domain.</li>
       </ol>
     </div>
   </div>
 
+  <!-- 29a -->
   <div class="example">
-    <div class="ex-head">Example — Problem 29a: \(x(t)=\sec^2 t,\;\; y(t)=6\tan t\)</div>
+    <div class="ex-head">Example — Problem 29a: \(x(t)=\sec^2 t,\;\; y(t)=6\tan t\) (Strategy 3)</div>
     <div class="ex-body">
-      <p>From \(y\): \(\tan t = \tfrac{y}{6}\), so \(\tan^2 t = \tfrac{y^2}{36}\).</p>
-      <p>Identity: \(\sec^2 t - \tan^2 t = 1 \;\Rightarrow\; x - \tfrac{y^2}{36} = 1\)</p>
-      <p><strong>Answer: \(x = 1 + \dfrac{y^2}{36}\) &nbsp;(parabola, \(x \ge 1\))</strong></p>
+      <p><strong>Strategy selection:</strong> \(x\) contains \(\sec^2 t\) and \(y\) contains \(\tan t\). This signals <strong>Strategy 3</strong> (secant/tangent identity: \(\sec^2 t - \tan^2 t = 1\)).</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 1]</span> Identify the trig functions present.
+        <div class="math-block">\[\sec^2 t = x \qquad \tan t = \frac{y}{6} \;\Rightarrow\; \tan^2 t = \frac{y^2}{36}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 3]</span> Apply the identity \(\sec^2 t - \tan^2 t = 1\). Substitute:
+        <div class="math-block">\[x - \frac{y^2}{36} = 1\]</div>
+        <p>Solve for \(x\) to write in standard form:</p>
+        <div class="math-block">\[x = 1 + \frac{y^2}{36}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 6]</span> State the restriction. Since \(\sec^2 t \ge 1\) for all \(t\), we have \(x \ge 1\).
+        <div class="answer">\[x = 1 + \frac{y^2}{36}, \quad x \ge 1\]</div>
+        <p><em>Shape:</em> Parabola opening to the right with vertex at \((1,0)\).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 29b -->
+  <div class="example">
+    <div class="ex-head">Example — Problem 29b: \(x(t)=-1+4e^t,\;\; y(t)=2+e^{2t}\) (Strategy 4)</div>
+    <div class="ex-body">
+      <p><strong>Strategy selection:</strong> Both \(x\) and \(y\) involve \(e^t\) and \(e^{2t}\) — notice \(e^{2t}=(e^t)^2\). Use <strong>Strategy 4</strong> (exponential).</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 1]</span> Isolate \(e^t\) from the \(x\) equation.
+        <div class="math-block">\[x = -1 + 4e^t \;\Rightarrow\; 4e^t = x+1 \;\Rightarrow\; e^t = \frac{x+1}{4}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 4]</span> Express \(e^{2t}\) in terms of \(x\):
+        <div class="math-block">\[e^{2t} = \left(e^t\right)^2 = \left(\frac{x+1}{4}\right)^2 = \frac{(x+1)^2}{16}\]</div>
+        <p>Substitute into \(y\):</p>
+        <div class="math-block">\[y = 2 + e^{2t} = 2 + \frac{(x+1)^2}{16}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 6]</span> State the restriction. Since \(e^t > 0\) for all \(t\), we need \(\dfrac{x+1}{4} > 0\), so \(x > -1\).
+        <div class="answer">\[y = 2 + \frac{(x+1)^2}{16}, \quad x > -1\]</div>
+        <p><em>Shape:</em> Parabola opening upward with vertex at \((-1, 2)\).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 30a -->
+  <div class="example">
+    <div class="ex-head">Example — Problem 30a: \(x(t)=-1+3\cos t,\;\; y(t)=1+2\sin t\) (Strategy 2)</div>
+    <div class="ex-body">
+      <p><strong>Strategy selection:</strong> \(x\) contains \(\cos t\) and \(y\) contains \(\sin t\) — shifted sinusoidal form. Use <strong>Strategy 2</strong> (Pythagorean identity \(\cos^2 t + \sin^2 t = 1\)).</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 1]</span> Isolate \(\cos t\) and \(\sin t\).
+        <div class="math-block">\[x = -1 + 3\cos t \;\Rightarrow\; \cos t = \frac{x+1}{3}\]</div>
+        <div class="math-block">\[y = 1 + 2\sin t \;\Rightarrow\; \sin t = \frac{y-1}{2}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 2]</span> Apply \(\cos^2 t + \sin^2 t = 1\). Substitute:
+        <div class="math-block">\[\left(\frac{x+1}{3}\right)^2 + \left(\frac{y-1}{2}\right)^2 = 1\]</div>
+        <div class="answer">\[\frac{(x+1)^2}{9} + \frac{(y-1)^2}{4} = 1\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 6]</span> No restriction — \(t \in [0,2\pi)\) traces the full ellipse.
+        <p><em>Shape:</em> Ellipse centered at \((-1,\,1)\), semi-major axis \(a=3\) (horizontal), semi-minor axis \(b=2\) (vertical).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extra examples -->
+  <div class="example">
+    <div class="ex-head">Extra Example: \(x(t) = t^2,\;\; y(t) = t^6 + 3\) (Strategy 5)</div>
+    <div class="ex-body">
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 5]</span> Express \(t\) in terms of \(x\): \(x = t^2 \Rightarrow t^2 = x\).
+        <p>Notice \(t^6 = (t^2)^3 = x^3\). Substitute into \(y\):</p>
+        <div class="math-block">\[y = t^6 + 3 = x^3 + 3\]</div>
+      </div>
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 6]</span> Restriction: \(x = t^2 \ge 0\).
+        <div class="answer">\[y = x^3 + 3, \quad x \ge 0\]</div>
+      </div>
     </div>
   </div>
 
   <div class="example">
-    <div class="ex-head">Example — Problem 29b: \(x(t)=-1+4e^t,\;\; y(t)=2+e^{2t}\)</div>
+    <div class="ex-head">Extra Example: \(x(t) = e^t,\;\; y(t) = e^{5t} - 4\) (Strategy 4)</div>
     <div class="ex-body">
-      <p>From \(x\): \(e^t = \tfrac{x+1}{4}\), so \(e^{2t} = \left(\tfrac{x+1}{4}\right)^2 = \tfrac{(x+1)^2}{16}\).</p>
-      <p>Substitute into \(y\): <strong>\(y = 2 + \dfrac{(x+1)^2}{16}\) &nbsp;(parabola, \(x > -1\))</strong></p>
-    </div>
-  </div>
-
-  <div class="example">
-    <div class="ex-head">Example — Problem 30a: \(x(t)=-1+3\cos t,\;\; y(t)=1+2\sin t\)</div>
-    <div class="ex-body">
-      <p>Isolate trig: \(\cos t = \dfrac{x+1}{3}\), \(\quad\sin t = \dfrac{y-1}{2}\)</p>
-      <p>Apply \(\cos^2 t + \sin^2 t = 1\):</p>
-      <div class="math-block">\[\frac{(x+1)^2}{9} + \frac{(y-1)^2}{4} = 1\]</div>
-      <p><strong>Ellipse with center \((-1,\,1)\), \(a=3\), \(b=2\)</strong></p>
-    </div>
-  </div>
-
-  <div class="example">
-    <div class="ex-head">Extra Example: \(x(t) = t^2,\;\; y(t) = t^6 + 3\)</div>
-    <div class="ex-body">
-      <p>Note \(t^6 = (t^2)^3 = x^3\). So: <strong>\(y = x^3 + 3\)</strong></p>
-    </div>
-  </div>
-
-  <div class="example">
-    <div class="ex-head">Extra Example: \(x(t) = e^t,\;\; y(t) = e^{5t} - 4\)</div>
-    <div class="ex-body">
-      <p>\(e^{5t} = (e^t)^5 = x^5\). So: <strong>\(y = x^5 - 4\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 4]</span> From \(x = e^t\), note \(e^{5t} = (e^t)^5 = x^5\). Substitute:
+        <div class="math-block">\[y = x^5 - 4\]</div>
+      </div>
+      <div class="step-block">
+        <span class="sopstep">[Alg K, Step 6]</span> Since \(e^t > 0\), we need \(x > 0\).
+        <div class="answer">\[y = x^5 - 4, \quad x > 0\]</div>
+      </div>
     </div>
   </div>
 </div>
@@ -768,73 +1012,135 @@
   <div class="sec-header">
     <span class="sec-badge">§ 6</span>
     <h2>Parametrization of Geometric Objects</h2>
+    <a href="#" class="back-top">↑ top</a>
   </div>
 
+  <!-- Algorithm L -->
   <div class="sub">
     <h3>Algorithm L — Parametrize a Line Segment from \(P_1\) to \(P_2\)</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
-        <li>Let \(P_1 = (x_1,\,y_1)\) (start) and \(P_2 = (x_2,\,y_2)\) (end).</li>
-        <li>Write with \(t \in [0,1]\):
-          <div class="math-block">\[x(t) = x_1 + (x_2 - x_1)\,t\]</div>
-          <div class="math-block">\[y(t) = y_1 + (y_2 - y_1)\,t\]</div>
-        </li>
+        <li>Let \(P_1 = (x_1,y_1)\) be the start and \(P_2=(x_2,y_2)\) be the end.</li>
+        <li>Write with \(t\in[0,1]\): \(\;x(t) = x_1 + (x_2-x_1)t\) and \(y(t) = y_1+(y_2-y_1)t\).</li>
         <li>Verify: at \(t=0\) you get \(P_1\); at \(t=1\) you get \(P_2\). ✓</li>
       </ol>
     </div>
   </div>
 
+  <!-- 28a -->
   <div class="example">
-    <div class="ex-head">Example — Problem 28a: Line segment from \((1,6)\) to \((-3,1)\)</div>
+    <div class="ex-head">Example — Problem 28a: Line Segment from \((1,6)\) to \((-3,1)\) (Algorithm L)</div>
     <div class="ex-body">
-      <p>\(x(t) = 1 + (-3-1)\,t = 1 - 4t\)</p>
-      <p>\(y(t) = 6 + (1-6)\,t = 6 - 5t\)</p>
-      <p><strong>Answer: \(x(t) = 1-4t,\;\; y(t)=6-5t,\;\; t\in[0,1]\)</strong></p>
+      <p><span class="given-label">Given:</span> \(P_1 = (1,6)\), \(P_2 = (-3,1)\).</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg L, Step 1]</span> Identify the start and end points.
+        <div class="math-block">\[x_1 = 1,\quad y_1 = 6,\quad x_2 = -3,\quad y_2 = 1\]</div>
+        <p>Compute the displacement in each direction:</p>
+        <div class="math-block">\[x_2 - x_1 = -3 - 1 = -4 \qquad y_2 - y_1 = 1 - 6 = -5\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg L, Step 2]</span> Write the parametric equations.
+        <div class="math-block">\[x(t) = 1 + (-4)t = 1 - 4t\]</div>
+        <div class="math-block">\[y(t) = 6 + (-5)t = 6 - 5t\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg L, Step 3]</span> Verify endpoints.
+        <div class="math-block">\[t=0:\quad x(0)=1,\; y(0)=6 \;\Rightarrow\; P_1=(1,6) \quad\checkmark\]</div>
+        <div class="math-block">\[t=1:\quad x(1)=1-4=-3,\; y(1)=6-5=1 \;\Rightarrow\; P_2=(-3,1) \quad\checkmark\]</div>
+        <div class="answer">\[x(t) = 1-4t,\quad y(t) = 6-5t,\quad t\in[0,1]\]</div>
+      </div>
     </div>
   </div>
 
+  <!-- Extra line -->
   <div class="example">
-    <div class="ex-head">Extra Example: Line segment from \((-2,3)\) to \((5,-1)\)</div>
+    <div class="ex-head">Extra Example: Line Segment from \((-2,3)\) to \((5,-1)\) (Algorithm L)</div>
     <div class="ex-body">
-      <p><strong>\(x(t) = -2 + 7t,\;\; y(t) = 3 - 4t,\;\; t\in[0,1]\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg L, Step 1]</span> \(P_1=(-2,3)\), \(P_2=(5,-1)\).
+        <div class="math-block">\[x_2-x_1 = 5-(-2)=7 \qquad y_2-y_1 = -1-3=-4\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg L, Step 2]</span>
+        <div class="math-block">\[x(t) = -2 + 7t,\qquad y(t) = 3 - 4t\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg L, Step 3]</span> Verify: \(t=0 \to (-2,3)\) <span class="chk">✓</span>;&ensp;\(t=1 \to (5,-1)\) <span class="chk">✓</span>.
+        <div class="answer">\[x(t) = -2+7t,\quad y(t) = 3-4t,\quad t\in[0,1]\]</div>
+      </div>
     </div>
   </div>
 
+  <!-- Algorithm M -->
   <div class="sub">
     <h3>Algorithm M — Parametrize a Circle or Ellipse</h3>
     <div class="algo">
       <div class="algo-label">Standard Forms</div>
       <ol>
         <li><strong>Circle \(x^2+y^2=r^2\):</strong> \(\;x(t)=r\cos t,\;\;y(t)=r\sin t,\;\;t\in[0,2\pi]\)</li>
-        <li><strong>Circle \((x-h)^2+(y-k)^2=r^2\):</strong> \(\;x(t)=h+r\cos t,\;\;y(t)=k+r\sin t\)</li>
-        <li><strong>Ellipse:</strong> First rewrite as \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\), then \(x(t)=a\cos t,\;\;y(t)=b\sin t,\;\;t\in[0,2\pi]\)</li>
-        <li><strong>Shifted ellipse \(\dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}=1\):</strong> \(\;x(t)=h+a\cos t,\;\;y(t)=k+b\sin t\)</li>
+        <li><strong>Shifted circle \((x-h)^2+(y-k)^2=r^2\):</strong> \(\;x(t)=h+r\cos t,\;\;y(t)=k+r\sin t\)</li>
+        <li><strong>Ellipse</strong> — first rewrite as \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\): then \(x(t)=a\cos t,\;\;y(t)=b\sin t,\;\;t\in[0,2\pi]\)</li>
+        <li><strong>Shifted ellipse:</strong> \(\;x(t)=h+a\cos t,\;\;y(t)=k+b\sin t\)</li>
       </ol>
     </div>
-    <div class="tip"><strong>Key step:</strong> Always divide the ellipse equation by the constant on the right side first to get it into standard form before reading off \(a\) and \(b\).</div>
+    <div class="tip"><strong>Key step:</strong> Always divide the ellipse equation by the constant on the right to get \(=1\) before reading off \(a\) and \(b\). Reading \(a^2\) and \(b^2\) from an un-normalized equation gives wrong values.</div>
   </div>
 
+  <!-- 28b -->
   <div class="example">
-    <div class="ex-head">Example — Problem 28b: \(x^2 + y^2 = 4\)</div>
+    <div class="ex-head">Example — Problem 28b: \(x^2 + y^2 = 4\) (Algorithm M)</div>
     <div class="ex-body">
-      <p>Circle, \(r=2\). <strong>\(x(t)=2\cos t,\;\;y(t)=2\sin t,\;\;t\in[0,2\pi]\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg M, Step 1]</span> Identify the form: \(x^2+y^2=4 = 2^2\). This matches Form 1 (circle centered at origin). Read off \(r = 2\).
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg M, Step 2]</span> Write the parametric equations using Form 1.
+        <div class="answer">\[x(t) = 2\cos t,\quad y(t) = 2\sin t,\quad t\in[0,2\pi]\]</div>
+        <p><strong>Verification:</strong> \(x(t)^2 + y(t)^2 = 4\cos^2 t + 4\sin^2 t = 4(\cos^2 t + \sin^2 t) = 4\) <span class="chk">✓</span></p>
+      </div>
     </div>
   </div>
 
+  <!-- 28c -->
   <div class="example">
-    <div class="ex-head">Example — Problem 28c: \(25x^2 + 9y^2 = 225\)</div>
+    <div class="ex-head">Example — Problem 28c: \(25x^2 + 9y^2 = 225\) (Algorithm M)</div>
     <div class="ex-body">
-      <p>Divide by 225: \(\;\dfrac{x^2}{9} + \dfrac{y^2}{25} = 1\) \(\Rightarrow a=3,\; b=5\)</p>
-      <p><strong>\(x(t)=3\cos t,\;\;y(t)=5\sin t,\;\;t\in[0,2\pi]\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg M, Step 1]</span> Not in standard form. Divide both sides by 225.
+        <div class="math-block">\[\frac{25x^2}{225} + \frac{9y^2}{225} = 1 \;\Rightarrow\; \frac{x^2}{9} + \frac{y^2}{25} = 1\]</div>
+        <p>This matches Form 3 (ellipse). Read off: \(a^2 = 9 \Rightarrow a = 3\) and \(b^2 = 25 \Rightarrow b = 5\).</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg M, Step 2]</span> Write the parametric equations using Form 3.
+        <div class="answer">\[x(t) = 3\cos t,\quad y(t) = 5\sin t,\quad t\in[0,2\pi]\]</div>
+        <p><strong>Verification:</strong> \(\dfrac{(3\cos t)^2}{9} + \dfrac{(5\sin t)^2}{25} = \cos^2 t + \sin^2 t = 1\) <span class="chk">✓</span></p>
+      </div>
     </div>
   </div>
 
+  <!-- Extra ellipse -->
   <div class="example">
-    <div class="ex-head">Extra Example: \(9x^2 + 16y^2 = 144\)</div>
+    <div class="ex-head">Extra Example: \(9x^2 + 16y^2 = 144\) (Algorithm M)</div>
     <div class="ex-body">
-      <p>Divide by 144: \(\;\dfrac{x^2}{16}+\dfrac{y^2}{9}=1\) \(\Rightarrow a=4,\; b=3\)</p>
-      <p><strong>\(x(t)=4\cos t,\;\;y(t)=3\sin t,\;\;t\in[0,2\pi]\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg M, Step 1]</span> Divide by 144:
+        <div class="math-block">\[\frac{x^2}{16} + \frac{y^2}{9} = 1 \;\Rightarrow\; a^2=16\Rightarrow a=4,\quad b^2=9\Rightarrow b=3\]</div>
+        <p>Note: \(a\) goes with \(x\), \(b\) goes with \(y\) — match them to their respective variables.</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg M, Step 2]</span>
+        <div class="answer">\[x(t) = 4\cos t,\quad y(t) = 3\sin t,\quad t\in[0,2\pi]\]</div>
+        <p><strong>Verification:</strong> \(\tfrac{16\cos^2 t}{16} + \tfrac{9\sin^2 t}{9} = \cos^2 t + \sin^2 t = 1\) <span class="chk">✓</span></p>
+      </div>
     </div>
   </div>
 </div>
@@ -847,13 +1153,14 @@
   <div class="sec-header">
     <span class="sec-badge">§ 7</span>
     <h2>Tangent Lines &amp; Slopes of Parametric Curves</h2>
+    <a href="#" class="back-top">↑ top</a>
   </div>
 
   <div class="fbox">
     <div class="fbox-label">Parametric Derivative Formula</div>
     <div class="math-line">
       \(\displaystyle\frac{dy}{dx} = \frac{dy/dt}{dx/dt}\)
-      <span class="math-desc">slope of curve at parameter \(t\) (requires \(dx/dt \neq 0\))</span>
+      <span class="math-desc">requires \(dx/dt \neq 0\)</span>
     </div>
     <div class="math-line">
       Horizontal tangent: \(\dfrac{dy}{dt}=0\) AND \(\dfrac{dx}{dt}\neq 0\)
@@ -863,92 +1170,229 @@
     </div>
   </div>
 
+  <!-- Algorithm N -->
   <div class="sub">
     <h3>Algorithm N — Tangent Line at a Specific \(t\)-Value</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
         <li>Differentiate: compute \(\dfrac{dx}{dt}\) and \(\dfrac{dy}{dt}\).</li>
-        <li>Evaluate both at the given \(t_0\), then compute slope \(m = \dfrac{dy/dt}{dx/dt}\bigg|_{t=t_0}\).</li>
-        <li>Find the point: \((x_0, y_0) = \bigl(x(t_0),\,y(t_0)\bigr)\).</li>
-        <li>Write the tangent line: \(y - y_0 = m\,(x - x_0)\).</li>
+        <li>Evaluate both at \(t_0\); compute slope \(m = \dfrac{dy/dt}{dx/dt}\big|_{t=t_0}\).</li>
+        <li>Find the point: \((x_0,y_0) = (x(t_0),\,y(t_0))\).</li>
+        <li>Write the tangent line: \(y - y_0 = m(x-x_0)\).</li>
       </ol>
     </div>
   </div>
 
+  <!-- Problem 31a -->
   <div class="example">
-    <div class="ex-head">Example — Problem 31a: \(x(t)=4t^3-12t,\;\;y(t)=t^2+3\) at \(t=2\)</div>
+    <div class="ex-head">Example — Problem 31a: \(x(t)=4t^3-12t,\;\;y(t)=t^2+3\) at \(t=2\) (Algorithm N)</div>
     <div class="ex-body">
-      <p>\(\dfrac{dx}{dt} = 12t^2-12\), \(\quad\dfrac{dy}{dt} = 2t\)</p>
-      <p>At \(t=2\): \(\dfrac{dx}{dt} = 12(4)-12 = 36\), \(\quad\dfrac{dy}{dt} = 4\)</p>
-      <p>\(m = \dfrac{4}{36} = \dfrac{1}{9}\)</p>
-      <p>Point: \(x(2)=32-24=8\), \(\;y(2)=4+3=7\) → \((8,7)\)</p>
-      <p><strong>Tangent line: \(y - 7 = \dfrac{1}{9}(x-8)\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 1]</span> Differentiate both parametric equations with respect to \(t\).
+        <div class="math-block">\[\frac{dx}{dt} = \frac{d}{dt}\!\left[4t^3 - 12t\right] = 12t^2 - 12\]</div>
+        <div class="math-block">\[\frac{dy}{dt} = \frac{d}{dt}\!\left[t^2 + 3\right] = 2t\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 2]</span> Evaluate both derivatives at \(t_0 = 2\) and compute the slope.
+        <div class="math-block">\[\frac{dx}{dt}\bigg|_{t=2} = 12(2)^2 - 12 = 12(4) - 12 = 48 - 12 = 36\]</div>
+        <div class="math-block">\[\frac{dy}{dt}\bigg|_{t=2} = 2(2) = 4\]</div>
+        <p>Apply the parametric derivative formula:</p>
+        <div class="math-block">\[m = \frac{dy/dt}{dx/dt}\bigg|_{t=2} = \frac{4}{36} = \frac{1}{9}\]</div>
+        <p>Note: \(dx/dt = 36 \neq 0\), so the tangent is not vertical and the formula is valid.</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 3]</span> Find the point \((x_0, y_0)\) by evaluating the position at \(t=2\).
+        <div class="math-block">\[x(2) = 4(2)^3 - 12(2) = 4(8) - 24 = 32 - 24 = 8\]</div>
+        <div class="math-block">\[y(2) = (2)^2 + 3 = 4 + 3 = 7\]</div>
+        <p>Point: \((x_0,y_0) = (8,7)\).</p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 4]</span> Write the equation of the tangent line using point-slope form.
+        <div class="math-block">\[y - y_0 = m(x - x_0) \;\Rightarrow\; y - 7 = \frac{1}{9}(x - 8)\]</div>
+        <div class="answer">\[y - 7 = \frac{1}{9}(x - 8)\]</div>
+      </div>
     </div>
   </div>
 
+  <!-- Problem 30b -->
   <div class="example">
-    <div class="ex-head">Example — Problem 30b: \(x(t)=-1+3\cos t,\;\;y(t)=1+2\sin t\) at \(t=\tfrac{\pi}{4}\)</div>
+    <div class="ex-head">Example — Problem 30b: \(x(t)=-1+3\cos t,\;\;y(t)=1+2\sin t\) at \(t=\tfrac{\pi}{4}\) (Algorithm N)</div>
     <div class="ex-body">
-      <p>\(\dfrac{dx}{dt} = -3\sin t\), \(\quad\dfrac{dy}{dt} = 2\cos t\)</p>
-      <p>At \(t=\tfrac{\pi}{4}\): \(\dfrac{dx}{dt} = -\dfrac{3\sqrt{2}}{2}\), \(\quad\dfrac{dy}{dt} = \sqrt{2}\)</p>
-      <p>\(m = \dfrac{\sqrt{2}}{-3\sqrt{2}/2} = -\dfrac{2}{3}\)</p>
-      <p>Point: \(\left(-1+\dfrac{3\sqrt{2}}{2},\;1+\sqrt{2}\right)\)</p>
-      <p><strong>Tangent line: \(y - (1+\sqrt{2}) = -\dfrac{2}{3}\!\left(x - \left(-1+\tfrac{3\sqrt{2}}{2}\right)\right)\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 1]</span> Differentiate.
+        <div class="math-block">\[\frac{dx}{dt} = -3\sin t \qquad \frac{dy}{dt} = 2\cos t\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 2]</span> Evaluate at \(t_0 = \tfrac{\pi}{4}\). Recall \(\sin\tfrac{\pi}{4} = \cos\tfrac{\pi}{4} = \tfrac{\sqrt{2}}{2}\).
+        <div class="math-block">\[\frac{dx}{dt}\bigg|_{t=\pi/4} = -3\cdot\frac{\sqrt{2}}{2} = -\frac{3\sqrt{2}}{2}\]</div>
+        <div class="math-block">\[\frac{dy}{dt}\bigg|_{t=\pi/4} = 2\cdot\frac{\sqrt{2}}{2} = \sqrt{2}\]</div>
+        <p>Compute slope:</p>
+        <div class="math-block">\[m = \frac{\sqrt{2}}{-\,3\sqrt{2}/2} = \sqrt{2}\cdot\frac{-2}{3\sqrt{2}} = -\frac{2}{3}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 3]</span> Find the point.
+        <div class="math-block">\[x\!\left(\tfrac{\pi}{4}\right) = -1 + 3\cos\tfrac{\pi}{4} = -1 + 3\cdot\frac{\sqrt{2}}{2} = -1 + \frac{3\sqrt{2}}{2}\]</div>
+        <div class="math-block">\[y\!\left(\tfrac{\pi}{4}\right) = 1 + 2\sin\tfrac{\pi}{4} = 1 + 2\cdot\frac{\sqrt{2}}{2} = 1 + \sqrt{2}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 4]</span> Write the tangent line.
+        <div class="answer">\[y - (1+\sqrt{2}) = -\frac{2}{3}\!\left(x - \left(-1+\frac{3\sqrt{2}}{2}\right)\right)\]</div>
+      </div>
     </div>
   </div>
 
+  <!-- Algorithm O -->
   <div class="sub">
     <h3>Algorithm O — Find ALL Horizontal &amp; Vertical Tangent Points</h3>
     <div class="algo">
       <div class="algo-label">Step-by-Step Procedure</div>
       <ol>
         <li>Compute \(\dfrac{dx}{dt}\) and \(\dfrac{dy}{dt}\).</li>
-        <li><strong>Horizontal tangents:</strong> solve \(\dfrac{dy}{dt}=0\) for all \(t\) in the domain. For each \(t_0\), verify \(\dfrac{dx}{dt}\big|_{t_0} \neq 0\). Report \(\bigl(x(t_0), y(t_0)\bigr)\).</li>
-        <li><strong>Vertical tangents:</strong> solve \(\dfrac{dx}{dt}=0\) for all \(t\) in the domain. For each \(t_0\), verify \(\dfrac{dy}{dt}\big|_{t_0} \neq 0\). Report \(\bigl(x(t_0), y(t_0)\bigr)\).</li>
-        <li>Always report the actual coordinate pair \((x, y)\), not just \(t\).</li>
+        <li><strong>Horizontal:</strong> Solve \(\dfrac{dy}{dt}=0\). For each solution \(t_0\), confirm \(\dfrac{dx}{dt}\big|_{t_0}\neq 0\). Report \((x(t_0),y(t_0))\).</li>
+        <li><strong>Vertical:</strong> Solve \(\dfrac{dx}{dt}=0\). For each solution \(t_0\), confirm \(\dfrac{dy}{dt}\big|_{t_0}\neq 0\). Report \((x(t_0),y(t_0))\).</li>
+        <li>Always report the actual \((x,y)\) coordinate pair, not just \(t\).</li>
       </ol>
     </div>
-    <div class="note"><strong>⚠ Caution:</strong> If both \(\dfrac{dx}{dt}=0\) AND \(\dfrac{dy}{dt}=0\) at the same \(t\), the tangent is indeterminate. This is a cusp — require L'Hôpital or higher-order analysis.</div>
-  </div>
-
-  <div class="example">
-    <div class="ex-head">Example — Problem 31b &amp; c: \(x(t)=4t^3-12t,\;\;y(t)=t^2+3\)</div>
-    <div class="ex-body">
-      <p>\(\dfrac{dx}{dt} = 12t^2 - 12 = 12(t-1)(t+1)\), \(\quad\dfrac{dy}{dt} = 2t\)</p>
-      <br>
-      <p><strong>Horizontal tangents</strong> (\(dy/dt=0\)): \(2t=0 \Rightarrow t=0\).</p>
-      <p>Check: \(dx/dt\big|_{t=0} = -12 \neq 0\) ✓</p>
-      <p>Point: \(x(0)=0,\;y(0)=3\) → <strong>\((0,\,3)\)</strong></p>
-      <br>
-      <p><strong>Vertical tangents</strong> (\(dx/dt=0\)): \(t=1\) or \(t=-1\).</p>
-      <p>At \(t=1\): \(dy/dt=2\neq 0\) ✓ → \(x(1)=4-12=-8,\;y(1)=4\) → <strong>\((-8,\,4)\)</strong></p>
-      <p>At \(t=-1\): \(dy/dt=-2\neq 0\) ✓ → \(x(-1)=-4+12=8,\;y(-1)=4\) → <strong>\((8,\,4)\)</strong></p>
+    <div class="note">
+      <strong>⚠ Caution:</strong> If \(\dfrac{dx}{dt}=0\) AND \(\dfrac{dy}{dt}=0\) at the same \(t\), the tangent is indeterminate — this is a cusp. Do not report it as horizontal or vertical.
     </div>
   </div>
 
+  <!-- Problem 31b & c -->
   <div class="example">
-    <div class="ex-head">Example — Problem 30c: \(x(t)=-1+3\cos t,\;\;y(t)=1+2\sin t,\;\;t\in[0,2\pi)\)</div>
+    <div class="ex-head">Example — Problem 31b &amp; c: \(x(t)=4t^3-12t,\;\;y(t)=t^2+3\) — All Tangent Points (Algorithm O)</div>
     <div class="ex-body">
-      <p>\(\dfrac{dx}{dt} = -3\sin t\), \(\quad\dfrac{dy}{dt} = 2\cos t\)</p>
-      <br>
-      <p><strong>Horizontal</strong> (\(dy/dt=0\)): \(\cos t=0 \Rightarrow t=\tfrac{\pi}{2},\,\tfrac{3\pi}{2}\)</p>
-      <p>\(t=\tfrac{\pi}{2}\): point \((-1,\;3)\) &nbsp;|&nbsp; \(t=\tfrac{3\pi}{2}\): point \((-1,\;-1)\)</p>
-      <p><strong>Horizontal tangent points: \((-1,\,3)\) and \((-1,\,-1)\)</strong></p>
-      <br>
-      <p><strong>Vertical</strong> (\(dx/dt=0\)): \(\sin t=0 \Rightarrow t=0,\,\pi\)</p>
-      <p>\(t=0\): point \((2,\;1)\) &nbsp;|&nbsp; \(t=\pi\): point \((-4,\;1)\)</p>
-      <p><strong>Vertical tangent points: \((2,\,1)\) and \((-4,\,1)\)</strong></p>
+      <p><strong>Goal:</strong> Find all horizontal and vertical tangent points.</p>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg O, Step 1]</span> Differentiate.
+        <div class="math-block">\[\frac{dx}{dt} = 12t^2 - 12 = 12(t^2-1) = 12(t-1)(t+1)\]</div>
+        <div class="math-block">\[\frac{dy}{dt} = 2t\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg O, Step 2]</span> <strong>Find horizontal tangents</strong> — set \(\dfrac{dy}{dt}=0\).
+        <div class="math-block">\[2t = 0 \;\Rightarrow\; t = 0\]</div>
+        <p>Confirm: \(\dfrac{dx}{dt}\big|_{t=0} = 12(0-1)(0+1) = -12 \neq 0\) <span class="chk">✓</span> (valid horizontal tangent, not a cusp)</p>
+        <p>Find the point:</p>
+        <div class="math-block">\[x(0) = 4(0)^3 - 12(0) = 0 \qquad y(0) = (0)^2 + 3 = 3\]</div>
+        <p><strong>Horizontal tangent at: \((0,\,3)\)</strong></p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg O, Step 3]</span> <strong>Find vertical tangents</strong> — set \(\dfrac{dx}{dt}=0\).
+        <div class="math-block">\[12(t-1)(t+1) = 0 \;\Rightarrow\; t = 1 \quad\text{or}\quad t = -1\]</div>
+
+        <p><strong>At \(t = 1\):</strong></p>
+        <p>Confirm: \(\dfrac{dy}{dt}\big|_{t=1} = 2(1) = 2 \neq 0\) <span class="chk">✓</span></p>
+        <div class="math-block">\[x(1) = 4(1)^3 - 12(1) = 4-12 = -8 \qquad y(1) = (1)^2+3 = 4\]</div>
+        <p><strong>Vertical tangent at: \((-8,\,4)\)</strong></p>
+
+        <p style="margin-top:10px;"><strong>At \(t = -1\):</strong></p>
+        <p>Confirm: \(\dfrac{dy}{dt}\big|_{t=-1} = 2(-1) = -2 \neq 0\) <span class="chk">✓</span></p>
+        <div class="math-block">\[x(-1) = 4(-1)^3 - 12(-1) = -4+12 = 8 \qquad y(-1) = (-1)^2+3 = 4\]</div>
+        <p><strong>Vertical tangent at: \((8,\,4)\)</strong></p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg O, Step 4]</span> Summary of all tangent points.
+        <table>
+          <thead><tr><th>Type</th><th>\(t\) value</th><th>Point \((x,y)\)</th></tr></thead>
+          <tbody>
+            <tr><td>Horizontal</td><td>\(t=0\)</td><td>\((0,\,3)\)</td></tr>
+            <tr><td>Vertical</td><td>\(t=1\)</td><td>\((-8,\,4)\)</td></tr>
+            <tr><td>Vertical</td><td>\(t=-1\)</td><td>\((8,\,4)\)</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
+  <!-- Problem 30c -->
   <div class="example">
-    <div class="ex-head">Extra Example: \(x(t)=2t^3-6t,\;\;y(t)=t^2-4t\) at \(t=3\)</div>
+    <div class="ex-head">Example — Problem 30c: \(x(t)=-1+3\cos t,\;\;y(t)=1+2\sin t,\;\;t\in[0,2\pi)\) (Algorithm O)</div>
     <div class="ex-body">
-      <p>\(\dfrac{dx}{dt}=6t^2-6\), \(\quad\dfrac{dy}{dt}=2t-4\)</p>
-      <p>At \(t=3\): \(dx/dt=48\), \(\;dy/dt=2\) → \(m = \dfrac{2}{48}=\dfrac{1}{24}\)</p>
-      <p>Point: \(x(3)=36,\;y(3)=-3\)</p>
-      <p><strong>Tangent: \(y+3=\dfrac{1}{24}(x-36)\)</strong></p>
+      <div class="step-block">
+        <span class="sopstep">[Alg O, Step 1]</span> Differentiate.
+        <div class="math-block">\[\frac{dx}{dt} = -3\sin t \qquad \frac{dy}{dt} = 2\cos t\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg O, Step 2]</span> <strong>Horizontal tangents</strong> — set \(\dfrac{dy}{dt}=0\).
+        <div class="math-block">\[2\cos t = 0 \;\Rightarrow\; \cos t = 0 \;\Rightarrow\; t = \frac{\pi}{2},\;\frac{3\pi}{2}\]</div>
+
+        <p><strong>At \(t = \tfrac{\pi}{2}\):</strong>&ensp;Confirm \(\dfrac{dx}{dt} = -3\sin\tfrac{\pi}{2} = -3 \neq 0\) <span class="chk">✓</span></p>
+        <div class="math-block">\[x\!\left(\tfrac{\pi}{2}\right) = -1+3\cos\tfrac{\pi}{2} = -1+0 = -1 \qquad y\!\left(\tfrac{\pi}{2}\right) = 1+2\sin\tfrac{\pi}{2} = 1+2 = 3\]</div>
+        <p>Horizontal tangent at \((-1,\,3)\).</p>
+
+        <p style="margin-top:10px;"><strong>At \(t = \tfrac{3\pi}{2}\):</strong>&ensp;Confirm \(\dfrac{dx}{dt} = -3\sin\tfrac{3\pi}{2} = 3 \neq 0\) <span class="chk">✓</span></p>
+        <div class="math-block">\[x\!\left(\tfrac{3\pi}{2}\right) = -1+3\cos\tfrac{3\pi}{2} = -1+0 = -1 \qquad y\!\left(\tfrac{3\pi}{2}\right) = 1+2\sin\tfrac{3\pi}{2} = 1-2 = -1\]</div>
+        <p>Horizontal tangent at \((-1,\,-1)\).</p>
+        <p><strong>Horizontal tangent points: \((-1,\,3)\) and \((-1,\,-1)\)</strong></p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg O, Step 3]</span> <strong>Vertical tangents</strong> — set \(\dfrac{dx}{dt}=0\).
+        <div class="math-block">\[-3\sin t = 0 \;\Rightarrow\; \sin t = 0 \;\Rightarrow\; t = 0,\;\pi\]</div>
+
+        <p><strong>At \(t = 0\):</strong>&ensp;Confirm \(\dfrac{dy}{dt} = 2\cos 0 = 2 \neq 0\) <span class="chk">✓</span></p>
+        <div class="math-block">\[x(0) = -1+3\cos 0 = -1+3 = 2 \qquad y(0) = 1+2\sin 0 = 1\]</div>
+        <p>Vertical tangent at \((2,\,1)\).</p>
+
+        <p style="margin-top:10px;"><strong>At \(t = \pi\):</strong>&ensp;Confirm \(\dfrac{dy}{dt} = 2\cos\pi = -2 \neq 0\) <span class="chk">✓</span></p>
+        <div class="math-block">\[x(\pi) = -1+3\cos\pi = -1-3 = -4 \qquad y(\pi) = 1+2\sin\pi = 1\]</div>
+        <p>Vertical tangent at \((-4,\,1)\).</p>
+        <p><strong>Vertical tangent points: \((2,\,1)\) and \((-4,\,1)\)</strong></p>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg O, Step 4]</span> Summary.
+        <table>
+          <thead><tr><th>Type</th><th>\(t\) value</th><th>Point \((x,y)\)</th></tr></thead>
+          <tbody>
+            <tr><td>Horizontal</td><td>\(t=\pi/2\)</td><td>\((-1,\,3)\)</td></tr>
+            <tr><td>Horizontal</td><td>\(t=3\pi/2\)</td><td>\((-1,\,-1)\)</td></tr>
+            <tr><td>Vertical</td><td>\(t=0\)</td><td>\((2,\,1)\)</td></tr>
+            <tr><td>Vertical</td><td>\(t=\pi\)</td><td>\((-4,\,1)\)</td></tr>
+          </tbody>
+        </table>
+        <p><em>Geometric note:</em> These are exactly the top, bottom, right, and left vertices of the ellipse \(\dfrac{(x+1)^2}{9}+\dfrac{(y-1)^2}{4}=1\), which is where an ellipse always has its horizontal and vertical tangents.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Extra tangent -->
+  <div class="example">
+    <div class="ex-head">Extra Example: \(x(t)=2t^3-6t,\;\;y(t)=t^2-4t\) at \(t=3\) (Algorithm N)</div>
+    <div class="ex-body">
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 1]</span> Differentiate.
+        <div class="math-block">\[\frac{dx}{dt} = 6t^2 - 6 \qquad \frac{dy}{dt} = 2t - 4\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 2]</span> Evaluate at \(t=3\) and compute slope.
+        <div class="math-block">\[\frac{dx}{dt}\bigg|_{t=3} = 6(9)-6 = 54-6 = 48\]</div>
+        <div class="math-block">\[\frac{dy}{dt}\bigg|_{t=3} = 2(3)-4 = 6-4 = 2\]</div>
+        <div class="math-block">\[m = \frac{2}{48} = \frac{1}{24}\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 3]</span> Find the point.
+        <div class="math-block">\[x(3) = 2(27)-6(3) = 54-18 = 36 \qquad y(3) = 9-12 = -3\]</div>
+      </div>
+
+      <div class="step-block">
+        <span class="sopstep">[Alg N, Step 4]</span>
+        <div class="answer">\[y+3 = \frac{1}{24}(x-36)\]</div>
+      </div>
     </div>
   </div>
 </div>
@@ -961,6 +1405,7 @@
   <div class="sec-header">
     <span class="sec-badge" style="background:var(--green);">★</span>
     <h2>Quick-Reference Cheatsheet</h2>
+    <a href="#" class="back-top">↑ top</a>
   </div>
 
   <div class="two-col">
