@@ -1,1 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 10 SOP — Polar & Parametric</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
 
+  :root {
+    --ink: #0f0e0d;
+    --paper: #f5f0e8;
+    --rule: #c8b99a;
+    --accent: #b5451b;
+    --accent2: #1b5ab5;
+    --accent3: #1a7a4a;
+    --light-bg: #eee8da;
+    --box-bg: #faf7f2;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --display: 'Playfair Display', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.7;
+    padding: 48px 24px;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  header {
+    border-top: 4px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 24px 0 18px;
+    margin-bottom: 40px;
+  }
+  header .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  header h1 {
+    font-family: var(--display);
+    font-size: 2.6rem;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  header .sub {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+    font-weight: 400;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--light-bg);
+    border-left: 3px solid var(--ink);
+    padding: 18px 24px;
+    margin-bottom: 48px;
+  }
+  .toc h2 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+  .toc ol {
+    padding-left: 18px;
+    font-size: 13px;
+  }
+  .toc ol li { margin-bottom: 3px; }
+  .toc a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .toc a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 52px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2px 8px;
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+  .section h2 {
+    font-family: var(--display);
+    font-size: 1.45rem;
+    font-weight: 700;
+  }
+
+  /* SUBSECTIONS */
+  .sub-section {
+    margin: 18px 0;
+  }
+  .sub-section h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  /* ALGORITHM BOX */
+  .algo {
+    background: var(--box-bg);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    padding: 16px 18px;
+    margin: 12px 0;
+  }
+  .algo .algo-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .algo ol, .algo ul {
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .algo li { margin-bottom: 2px; }
+
+  /* FORMULA BOX */
+  .formula {
+    background: #fff;
+    border: 1.5px solid var(--ink);
+    padding: 12px 18px;
+    margin: 10px 0;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .formula .f-label {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 4px;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+
+  /* NOTE / WARNING */
+  .note {
+    background: #fff8e7;
+    border: 1px solid #e0c96a;
+    border-left: 3px solid #c8a200;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin: 10px 0;
+  }
+  .note strong { color: #8a6f00; }
+
+  .tip {
+    background: #eef5ff;
+    border-left: 3px solid var(--accent2);
+    padding: 10px 14px;
+    font-size: 13px;
+    margin: 10px 0;
+  }
+  .tip strong { color: var(--accent2); }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 12px 0;
+  }
+  th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--light-bg); }
+
+  /* EXAMPLE */
+  .example {
+    border: 1px solid var(--rule);
+    margin: 14px 0;
+  }
+  .example .ex-head {
+    background: var(--light-bg);
+    padding: 6px 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    border-bottom: 1px solid var(--rule);
+  }
+  .example .ex-body {
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .example .ex-body p { margin-bottom: 6px; }
+
+  /* INLINE CODE */
+  code {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    background: var(--light-bg);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+
+  p { margin-bottom: 8px; font-size: 13px; }
+
+  hr.thin { border: none; border-top: 1px solid var(--rule); margin: 16px 0; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 10px 0;
+  }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .tag-red { background: #fde8e2; color: var(--accent); }
+  .tag-blue { background: #e2eafe; color: var(--accent2); }
+  .tag-green { background: #e2f3ea; color: var(--accent3); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="label">Standard Operating Procedure · Calculus II</div>
+  <h1>Polar &amp; Parametric Equations</h1>
+  <div class="sub">Chapter 10 Complete Problem-Solving Guide — Sections 10.1 – 10.5</div>
+</header>
+
+<!-- TOC -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#s1">Polar ↔ Rectangular Coordinate Conversions</a></li>
+    <li><a href="#s2">Polar ↔ Algebraic Equation Conversions</a></li>
+    <li><a href="#s3">Identifying &amp; Graphing Polar Curves</a></li>
+    <li><a href="#s4">Areas of Polar Regions</a></li>
+    <li><a href="#s5">Parametric Curves ↔ Algebraic Equations</a></li>
+    <li><a href="#s6">Parametrization of Geometric Objects</a></li>
+    <li><a href="#s7">Tangent Lines &amp; Slopes of Parametric Curves</a></li>
+  </ol>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 1
+════════════════════════════════════════════ -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <span class="section-num">§1</span>
+    <h2>Polar ↔ Rectangular Coordinate Conversions</h2>
+  </div>
+
+  <div class="formula">
+    <div class="f-label">Core Conversion Identities</div>
+    x = r·cos(θ)&nbsp;&nbsp;&nbsp;&nbsp;y = r·sin(θ)<br>
+    r² = x² + y²&nbsp;&nbsp;&nbsp;&nbsp;tan(θ) = y/x<br>
+    r = √(x² + y²)&nbsp;&nbsp;&nbsp;&nbsp;θ = arctan(y/x) [adjust quadrant!]
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm A — Rectangular (x, y) → Polar (r, θ)</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Compute <code>r = √(x² + y²)</code>.</li>
+        <li>Compute reference angle <code>α = arctan(|y/x|)</code>.</li>
+        <li>Determine the correct quadrant of (x, y) and assign θ:
+          <ul>
+            <li>Q1: θ = α</li>
+            <li>Q2: θ = π − α</li>
+            <li>Q3: θ = π + α</li>
+            <li>Q4: θ = 2π − α (or −α)</li>
+          </ul>
+        </li>
+        <li>Write answer as <code>(r, θ)</code> or <code>[r, θ]</code>.</li>
+        <li><em>Check:</em> Verify x = r·cos(θ) and y = r·sin(θ) reproduce originals.</li>
+      </ol>
+    </div>
+    <div class="note"><strong>⚠ Quadrant Rule:</strong> arctan(y/x) always gives an angle in (−π/2, π/2). Always inspect the signs of x and y to place θ in the correct quadrant.</div>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm B — Polar (r, θ) → Rectangular (x, y)</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Compute <code>x = r·cos(θ)</code>.</li>
+        <li>Compute <code>y = r·sin(θ)</code>.</li>
+        <li>Simplify. Done.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — (x, y) = (−3, 3) → Polar</div>
+    <div class="ex-body">
+      <p>r = √(9 + 9) = 3√2</p>
+      <p>α = arctan(3/3) = arctan(1) = π/4</p>
+      <p>Point is in Q2 (x < 0, y > 0) → θ = π − π/4 = 3π/4</p>
+      <p><strong>Answer: (3√2, 3π/4)</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2
+════════════════════════════════════════════ -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <span class="section-num">§2</span>
+    <h2>Polar ↔ Algebraic Equation Conversions</h2>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm C — Rectangular Equation → Polar</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Replace every <code>x</code> with <code>r·cos(θ)</code> and every <code>y</code> with <code>r·sin(θ)</code>.</li>
+        <li>Replace every <code>x² + y²</code> directly with <code>r²</code> (shortcut — do this first).</li>
+        <li>Simplify and factor out r where possible.</li>
+        <li>If r appears in the denominator, multiply both sides by r.</li>
+        <li>Solve for r (or leave in implicit polar form).</li>
+      </ol>
+    </div>
+    <div class="tip"><strong>Tip:</strong> Always scan for <code>x² + y²</code> first — replace it with r² before substituting x and y individually. This cuts algebra significantly.</div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x² + (y − 4)² = 16 → Polar (Problem 23a)</div>
+    <div class="ex-body">
+      <p>Expand: x² + y² − 8y + 16 = 16</p>
+      <p>Simplify: x² + y² − 8y = 0</p>
+      <p>Replace x² + y² → r²: r² − 8y = 0</p>
+      <p>Replace y → r·sin(θ): r² − 8r·sin(θ) = 0</p>
+      <p>Factor: r(r − 8sin(θ)) = 0</p>
+      <p><strong>Answer: r = 8sin(θ)</strong></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — (x − 7)² + y² = 49 → Polar (Problem 23b)</div>
+    <div class="ex-body">
+      <p>Expand: x² − 14x + 49 + y² = 49</p>
+      <p>Simplify: x² + y² − 14x = 0</p>
+      <p>Replace: r² − 14r·cos(θ) = 0</p>
+      <p>Factor: r(r − 14cos(θ)) = 0</p>
+      <p><strong>Answer: r = 14cos(θ)</strong></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x² + y² = 16x → Polar (Problem 23c)</div>
+    <div class="ex-body">
+      <p>Replace x² + y² → r² and x → r·cos(θ): r² = 16r·cos(θ)</p>
+      <p>Divide by r: <strong>r = 16cos(θ)</strong></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x² + y² − 24y = 0 → Polar (Problem 23d)</div>
+    <div class="ex-body">
+      <p>Replace x² + y² → r² and y → r·sin(θ): r² − 24r·sin(θ) = 0</p>
+      <p>Factor: r(r − 24sin(θ)) = 0</p>
+      <p><strong>Answer: r = 24sin(θ)</strong></p>
+    </div>
+  </div>
+
+  <hr class="thin">
+
+  <div class="sub-section">
+    <h3>Algorithm D — Polar Equation → Rectangular</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Multiply both sides by r if needed to create r², r·cos(θ), or r·sin(θ) terms.</li>
+        <li>Replace: <code>r² → x²+y²</code>, <code>r·cos(θ) → x</code>, <code>r·sin(θ) → y</code>.</li>
+        <li>Simplify and, if it's a circle, complete the square to identify center/radius.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="f-label">Quick Reference — Common Polar Forms</div>
+    r = a·cos(θ)  →  circle center (a/2, 0), radius |a/2|<br>
+    r = a·sin(θ)  →  circle center (0, a/2), radius |a/2|<br>
+    r = a          →  circle center (0,0), radius a<br>
+    θ = c          →  line through origin at angle c
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3
+════════════════════════════════════════════ -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <span class="section-num">§3</span>
+    <h2>Identifying &amp; Graphing Polar Curves</h2>
+  </div>
+
+  <p>Classify the curve first, then graph it using a table of key (r, θ) values.</p>
+
+  <div class="sub-section">
+    <h3>Polar Curve Identification Table</h3>
+    <table>
+      <thead>
+        <tr><th>Form</th><th>Curve Type</th><th>Key Features</th><th>Problem Examples</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>r = a</code></td>
+          <td>Circle</td>
+          <td>Centered at origin, radius a</td>
+          <td>Prob 27: r = 3</td>
+        </tr>
+        <tr>
+          <td><code>r = a·cos(θ)</code> or <code>a·sin(θ)</code></td>
+          <td>Circle</td>
+          <td>Passes through origin; right/left or up/down</td>
+          <td>22A, 22F</td>
+        </tr>
+        <tr>
+          <td><code>r = a ± b·cos(θ)</code>, a/b ≥ 1</td>
+          <td>Limaçon (no inner loop)</td>
+          <td>If a = b: cardioid. If a > b: dimpled or convex.</td>
+          <td>22B, 26a: r=2+4cos(θ)</td>
+        </tr>
+        <tr>
+          <td><code>r = a ± b·cos(θ)</code>, a/b < 1</td>
+          <td>Limaçon with inner loop</td>
+          <td>Loops where r < 0</td>
+          <td>26a, 26b</td>
+        </tr>
+        <tr>
+          <td><code>r = a·cos(nθ)</code> or <code>a·sin(nθ)</code></td>
+          <td>Rose / Flower</td>
+          <td>n petals if n odd; 2n petals if n even</td>
+          <td>22D, 24: r=2cos(3θ), 25: r=2sin(2θ)</td>
+        </tr>
+        <tr>
+          <td><code>r = a·sin(θ) ± b</code> (shifted)</td>
+          <td>Cardioid / Limaçon</td>
+          <td>Opens up or down</td>
+          <td>22B, 22C</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm E — Graphing a Polar Curve</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li><strong>Identify the type</strong> using the table above.</li>
+        <li><strong>Find zeros:</strong> Set r = 0 and solve for θ. These are angles where the curve passes through the origin.</li>
+        <li><strong>Find maximum |r|:</strong> Set dr/dθ = 0 or inspect the trig function for max/min.</li>
+        <li><strong>Build a table</strong> of (θ, r) at key angles: 0, π/6, π/4, π/3, π/2, 2π/3, 3π/4, π, and then by symmetry.</li>
+        <li><strong>Check symmetry:</strong>
+          <ul>
+            <li>Replace θ → −θ: symmetric about polar axis (x-axis)</li>
+            <li>Replace θ → π−θ: symmetric about θ = π/2 (y-axis)</li>
+            <li>Replace r → −r: symmetric about pole (origin)</li>
+          </ul>
+        </li>
+        <li><strong>Plot</strong> the (r, θ) pairs in polar form. Connect smoothly.</li>
+        <li><strong>Note inner loops:</strong> they occur when r < 0 (the curve traces behind the pole).</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>Limaçon Details — Problems 26a &amp; 26b</h3>
+    <table>
+      <thead>
+        <tr><th>Curve</th><th>Ratio a/b</th><th>Shape</th><th>Inner Loop?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>r = 2 + 4cos(θ)</td><td>2/4 = 0.5 &lt; 1</td><td>Limaçon with inner loop</td><td>Yes</td></tr>
+        <tr><td>r = 5 − 10sin(θ)</td><td>5/10 = 0.5 &lt; 1</td><td>Limaçon with inner loop</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>Inner loop boundaries:</strong> Solve r = 0 to find the θ values that bound the inner loop. For r = 2 + 4cos(θ) = 0 → cos(θ) = −1/2 → θ = 2π/3 and 4π/3.</div>
+  </div>
+
+  <div class="sub-section">
+    <h3>Rose Curve Details — Problems 24 &amp; 25</h3>
+    <div class="formula">
+      <div class="f-label">Rose Curve Rules</div>
+      r = a·cos(nθ):  n odd → n petals | n even → 2n petals<br>
+      r = a·sin(nθ):  same petal count rules; rotated by π/(2n)<br>
+      Each petal's tip: r = a (maximum r)<br>
+      Petal tips occur at: nθ = 0, π, 2π, ... (for cos) or nθ = π/2, 3π/2, ... (for sin)
+    </div>
+    <p><strong>Problem 24:</strong> r = 2cos(3θ) → 3-petal rose (n=3, odd), petals along θ = 0, 2π/3, 4π/3.</p>
+    <p><strong>Problem 25:</strong> r = 2sin(2θ) → 4-petal rose (n=2, even), petals at θ = π/4, 3π/4, 5π/4, 7π/4.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4
+════════════════════════════════════════════ -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <span class="section-num">§4</span>
+    <h2>Areas of Polar Regions</h2>
+  </div>
+
+  <div class="formula">
+    <div class="f-label">Master Area Formula — Polar Region</div>
+    A = (1/2) ∫[α to β] r² dθ<br>
+    <br>
+    Area between two curves (outer r₂, inner r₁):<br>
+    A = (1/2) ∫[α to β] [r₂² − r₁²] dθ
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm F — Area Enclosed by a Single Polar Curve</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure (e.g. full rose petal, full circle)</div>
+      <ol>
+        <li>Identify the curve r = f(θ).</li>
+        <li>Find the limits α and β by setting r = 0 and solving — these are the angles where the curve starts and ends one complete region.</li>
+        <li>Use symmetry if possible (integrate over half then double).</li>
+        <li>Set up: <code>A = (1/2)∫[α to β] r² dθ</code>.</li>
+        <li>Expand r² (use power-reduction identities for trig²).</li>
+        <li>Integrate term by term and evaluate.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="f-label">Essential Trig Power-Reduction (needed for r²)</div>
+    cos²(θ) = (1 + cos(2θ)) / 2<br>
+    sin²(θ) = (1 − cos(2θ)) / 2<br>
+    cos²(nθ) = (1 + cos(2nθ)) / 2
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm G — Area of ONE Petal (Rose Curve)</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Find bounds: Set r = 0 → solve for θ → these give the angular bounds of one petal.</li>
+        <li>For r = a·cos(nθ): one petal spans θ ∈ [−π/(2n), π/(2n)]. By symmetry, integrate 0 to π/(2n) and double.</li>
+        <li>Write <code>A_one petal = (1/2) ∫ r² dθ</code> over those bounds.</li>
+        <li>Apply power-reduction to cos²(nθ), integrate, evaluate.</li>
+        <li>For total area of all petals: multiply A_one petal by the number of petals.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — Area enclosed by r = 2cos(3θ) [Problem 24]</div>
+    <div class="ex-body">
+      <p>One petal: cos(3θ) = 0 → 3θ = π/2 → θ = π/6. So petal: [−π/6, π/6].</p>
+      <p>A_one = (1/2)∫[−π/6 to π/6] (2cos3θ)² dθ = (1/2)∫4cos²(3θ) dθ = 2∫cos²(3θ) dθ</p>
+      <p>= 2∫[(1+cos(6θ))/2] dθ = ∫[1 + cos(6θ)] dθ = [θ + sin(6θ)/6] from −π/6 to π/6</p>
+      <p>= (π/6 + 0) − (−π/6 + 0) = π/3</p>
+      <p>3 petals total → <strong>Total Area = 3 × π/3 = π</strong></p>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm H — Inner Loop Area (Limaçon)</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Identify the limaçon r = a ± b·cos(θ) or r = a ± b·sin(θ) with a/b &lt; 1.</li>
+        <li>Find where r = 0: solve a ± b·cos(θ) = 0 → cos(θ) = ∓a/b. Let these be θ₁ and θ₂ (the inner loop bounds).</li>
+        <li>The inner loop is traced for θ ∈ [θ₁, θ₂] (where r ≤ 0).</li>
+        <li>Area of inner loop = <code>(1/2)∫[θ₁ to θ₂] r² dθ</code>.</li>
+        <li>Note: r² is always positive, so the inner loop area formula is the same regardless of r's sign.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm I — Outer Loop / Between Loops</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Total area enclosed by the full curve = (1/2)∫[0 to 2π] r² dθ.</li>
+        <li>Outer loop area = Total area − Inner loop area.</li>
+        <li>Area between loops = Outer loop area − Inner loop area.</li>
+        <li>Alternatively, set up outer loop bounds (where r ≥ 0) directly and integrate.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm J — Area Between Two Polar Curves (Problem 27)</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Find intersections: Set r₁ = r₂ and solve for θ. Also check if both curves pass through the origin.</li>
+        <li>Determine which curve is the outer (larger r) on each interval.</li>
+        <li>Set up: <code>A = (1/2) ∫[α to β] [r_outer² − r_inner²] dθ</code></li>
+        <li>For "inside r=3 and outside r=3−3cosθ": outer = r=3, inner = r=3−3cosθ, over the interval where 3 > 3−3cosθ, i.e., cosθ > 0.</li>
+        <li>For "inside r=3−3cosθ and outside r=3": swap inner/outer.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — Problem 27: r = 3 and r = 3 − 3cos(θ)</div>
+    <div class="ex-body">
+      <p>Intersection: 3 = 3 − 3cos(θ) → cos(θ) = 0 → θ = π/2 and 3π/2.</p>
+      <p><strong>(a) Area between both curves</strong> = (1/2)∫[−π/2 to π/2][3² − (3−3cosθ)²] dθ × 2 (by symmetry)</p>
+      <p><strong>(b) Inside r=3, outside r=3−3cosθ</strong>: outer is r=3 on [−π/2, π/2]</p>
+      <p>A = (1/2)∫[−π/2 to π/2][9 − (3−3cosθ)²] dθ</p>
+      <p><strong>(c) Inside r=3−3cosθ, outside r=3</strong>: outer is r=3−3cosθ on [π/2, 3π/2]</p>
+      <p>A = (1/2)∫[π/2 to 3π/2][(3−3cosθ)² − 9] dθ</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5
+════════════════════════════════════════════ -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <span class="section-num">§5</span>
+    <h2>Parametric Curves ↔ Algebraic Equations</h2>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm K — Eliminate the Parameter (→ Algebraic Equation)</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Look at x(t) and y(t) and choose a strategy:</li>
+        <li><strong>Strategy 1 — Direct substitution:</strong> Solve one equation for t, substitute into the other.</li>
+        <li><strong>Strategy 2 — Trig identity:</strong> If x = a·cos(t), y = b·sin(t), then (x/a)² + (y/b)² = cos²(t) + sin²(t) = 1.</li>
+        <li><strong>Strategy 3 — Exponent:</strong> If x = eᵗ and y = e^(kt), then y = xᵏ.</li>
+        <li><strong>Strategy 4 — Power:</strong> If x = t^m and y = t^n, then y = x^(n/m).</li>
+        <li>State any restrictions on x and/or y imposed by the original parameter range.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x(t) = sec²(t), y(t) = 6tan(t) [Problem 29a]</div>
+    <div class="ex-body">
+      <p>From y: tan(t) = y/6, so tan²(t) = y²/36.</p>
+      <p>Identity: sec²(t) − tan²(t) = 1 → x − y²/36 = 1</p>
+      <p><strong>Answer: x = 1 + y²/36</strong> (a parabola, x ≥ 1)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x(t) = −1 + 4eᵗ, y(t) = 2 + e²ᵗ [Problem 29b]</div>
+    <div class="ex-body">
+      <p>From x: eᵗ = (x+1)/4, so e²ᵗ = ((x+1)/4)² = (x+1)²/16.</p>
+      <p>Substitute into y: y = 2 + (x+1)²/16</p>
+      <p><strong>Answer: y = 2 + (x+1)²/16</strong> (a parabola, x > −1)</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x(t) = −1 + 3cos(t), y(t) = 1 + 2sin(t) [Problem 30a]</div>
+    <div class="ex-body">
+      <p>cos(t) = (x+1)/3, sin(t) = (y−1)/2.</p>
+      <p>Apply cos²(t) + sin²(t) = 1:</p>
+      <p><strong>Answer: (x+1)²/9 + (y−1)²/4 = 1</strong> (ellipse, center (−1,1), a=3, b=2)</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6
+════════════════════════════════════════════ -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <span class="section-num">§6</span>
+    <h2>Parametrization of Geometric Objects</h2>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm L — Parametrize a Line Segment from P₁ to P₂</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Let P₁ = (x₁, y₁) be the starting point and P₂ = (x₂, y₂) be the ending point.</li>
+        <li>Compute direction vector: Δx = x₂ − x₁, Δy = y₂ − y₁.</li>
+        <li>Write the parametrization with t ∈ [0, 1]:
+          <ul>
+            <li><code>x(t) = x₁ + (x₂ − x₁)·t</code></li>
+            <li><code>y(t) = y₁ + (y₂ − y₁)·t</code></li>
+          </ul>
+        </li>
+        <li>At t=0 you get P₁, at t=1 you get P₂. ✓</li>
+        <li>Alternatively use any interval, e.g. t ∈ [0, 1] is standard.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — Line segment from (1, 6) to (−3, 1) [Problem 28a]</div>
+    <div class="ex-body">
+      <p>x(t) = 1 + (−3 − 1)t = 1 − 4t</p>
+      <p>y(t) = 6 + (1 − 6)t = 6 − 5t</p>
+      <p><strong>Answer: x(t) = 1 − 4t, y(t) = 6 − 5t, t ∈ [0, 1]</strong></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — From (−2, 3) to (5, −1)</div>
+    <div class="ex-body">
+      <p>x(t) = −2 + 7t, y(t) = 3 − 4t, t ∈ [0, 1]</p>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm M — Parametrize a Circle or Ellipse</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li><strong>Circle x² + y² = r²:</strong> → x(t) = r·cos(t), y(t) = r·sin(t), t ∈ [0, 2π]</li>
+        <li><strong>Circle (x−h)² + (y−k)² = r²:</strong> → x(t) = h + r·cos(t), y(t) = k + r·sin(t)</li>
+        <li><strong>Ellipse x²/a² + y²/b² = 1:</strong> → x(t) = a·cos(t), y(t) = b·sin(t), t ∈ [0, 2π]</li>
+        <li><strong>Ellipse (x−h)²/a² + (y−k)²/b² = 1:</strong> → x(t) = h + a·cos(t), y(t) = k + b·sin(t)</li>
+        <li>Read off a² and b² by rewriting the equation in standard form first.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x² + y² = 4 [Problem 28b]</div>
+    <div class="ex-body">
+      <p>r = 2. <strong>x(t) = 2cos(t), y(t) = 2sin(t), t ∈ [0, 2π]</strong></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — 25x² + 9y² = 225 [Problem 28c]</div>
+    <div class="ex-body">
+      <p>Divide by 225: x²/9 + y²/25 = 1 → a² = 9, b² = 25, so a = 3, b = 5.</p>
+      <p><strong>x(t) = 3cos(t), y(t) = 5sin(t), t ∈ [0, 2π]</strong></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — Ellipse 9x² + 16y² = 144</div>
+    <div class="ex-body">
+      <p>Divide by 144: x²/16 + y²/9 = 1 → a = 4, b = 3.</p>
+      <p><strong>x(t) = 4cos(t), y(t) = 3sin(t), t ∈ [0, 2π]</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 7
+════════════════════════════════════════════ -->
+<div class="section" id="s7">
+  <div class="section-header">
+    <span class="section-num">§7</span>
+    <h2>Tangent Lines &amp; Slopes of Parametric Curves</h2>
+  </div>
+
+  <div class="formula">
+    <div class="f-label">Parametric Slope Formula</div>
+    dy/dx = (dy/dt) / (dx/dt)&nbsp;&nbsp;&nbsp;&nbsp;[provided dx/dt ≠ 0]<br>
+    <br>
+    Horizontal tangent: dy/dt = 0 AND dx/dt ≠ 0<br>
+    Vertical tangent:   dx/dt = 0 AND dy/dt ≠ 0
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm N — Tangent Line at a Specific t-Value</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Compute <code>dy/dt</code> and <code>dx/dt</code> (differentiate x(t) and y(t) with respect to t).</li>
+        <li>Compute slope: <code>m = (dy/dt) / (dx/dt)</code>.</li>
+        <li>Evaluate m at the given t-value to get a number.</li>
+        <li>Find the point: plug the t-value into x(t) and y(t) to get (x₀, y₀).</li>
+        <li>Write the tangent line using point-slope form: <code>y − y₀ = m(x − x₀)</code>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x(t) = 2t³ − 6t, y(t) = t² − 4t; tangent at t = 3</div>
+    <div class="ex-body">
+      <p>dx/dt = 6t² − 6 &nbsp;|&nbsp; dy/dt = 2t − 4</p>
+      <p>At t=3: dx/dt = 6(9)−6 = 48 &nbsp;|&nbsp; dy/dt = 6−4 = 2</p>
+      <p>Slope m = 2/48 = 1/24</p>
+      <p>Point: x(3) = 2(27)−18 = 36 &nbsp;|&nbsp; y(3) = 9−12 = −3 → (36, −3)</p>
+      <p><strong>Tangent line: y + 3 = (1/24)(x − 36)</strong></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x(t) = −1 + 3cos(t), y(t) = 1 + 2sin(t); tangent at t = π/4 [Problem 30b]</div>
+    <div class="ex-body">
+      <p>dx/dt = −3sin(t) &nbsp;|&nbsp; dy/dt = 2cos(t)</p>
+      <p>At t=π/4: dx/dt = −3(√2/2) = −3√2/2 &nbsp;|&nbsp; dy/dt = 2(√2/2) = √2</p>
+      <p>m = √2 / (−3√2/2) = √2 · (−2/(3√2)) = −2/3</p>
+      <p>Point: x = −1 + 3(√2/2) = −1 + 3√2/2 &nbsp;|&nbsp; y = 1 + 2(√2/2) = 1 + √2</p>
+      <p><strong>Tangent line: y − (1+√2) = −(2/3)(x − (−1 + 3√2/2))</strong></p>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>Algorithm O — Find ALL Horizontal &amp; Vertical Tangent Points</h3>
+    <div class="algo">
+      <div class="algo-title">Step-by-Step Procedure</div>
+      <ol>
+        <li>Compute dx/dt and dy/dt.</li>
+        <li><strong>Horizontal tangents:</strong> Solve dy/dt = 0 for all t in the domain. For each solution t₀, verify dx/dt ≠ 0 at t₀. Then compute (x(t₀), y(t₀)).</li>
+        <li><strong>Vertical tangents:</strong> Solve dx/dt = 0 for all t in the domain. For each solution t₀, verify dy/dt ≠ 0 at t₀. Then compute (x(t₀), y(t₀)).</li>
+        <li>Report the actual (x, y) coordinate pairs, not just the t-values.</li>
+      </ol>
+    </div>
+    <div class="note"><strong>⚠ Caution:</strong> If both dx/dt = 0 AND dy/dt = 0 at the same t, the tangent is indeterminate (need L'Hôpital or higher-order analysis). These are called cusps or singular points.</div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x(t) = 4t³ − 12t, y(t) = t² + 3 [Problem 31]</div>
+    <div class="ex-body">
+      <p>dx/dt = 12t² − 12 = 12(t² − 1) = 12(t−1)(t+1)</p>
+      <p>dy/dt = 2t</p>
+      <br>
+      <p><strong>Tangent line at t = 2:</strong></p>
+      <p>m = (2·2)/(12·4 − 12) = 4/36 = 1/9</p>
+      <p>Point: x(2) = 32 − 24 = 8, y(2) = 4+3 = 7 → (8, 7)</p>
+      <p>Line: y − 7 = (1/9)(x − 8)</p>
+      <br>
+      <p><strong>Horizontal tangents (dy/dt = 0):</strong> 2t = 0 → t = 0.</p>
+      <p>Check: dx/dt at t=0 = 12(0−1) = −12 ≠ 0. ✓</p>
+      <p>Point: x(0) = 0, y(0) = 3 → <strong>(0, 3)</strong></p>
+      <br>
+      <p><strong>Vertical tangents (dx/dt = 0):</strong> t = 1 or t = −1.</p>
+      <p>At t=1: dy/dt = 2 ≠ 0 ✓ → x(1) = 4−12 = −8, y(1) = 4 → <strong>(−8, 4)</strong></p>
+      <p>At t=−1: dy/dt = −2 ≠ 0 ✓ → x(−1) = −4+12 = 8, y(−1) = 4 → <strong>(8, 4)</strong></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="ex-head">Example — x(t) = −1 + 3cos(t), y(t) = 1 + 2sin(t) [Problem 30c]</div>
+    <div class="ex-body">
+      <p>dx/dt = −3sin(t) &nbsp;|&nbsp; dy/dt = 2cos(t)</p>
+      <br>
+      <p><strong>Horizontal (dy/dt = 0):</strong> cos(t) = 0 → t = π/2, 3π/2</p>
+      <p>Check dx/dt: at t=π/2, −3sin(π/2) = −3 ≠ 0 ✓</p>
+      <p>t=π/2: (−1+0, 1+2) = (−1, 3) &nbsp;|&nbsp; t=3π/2: (−1+0, 1−2) = (−1, −1)</p>
+      <p><strong>Horizontal tangent points: (−1, 3) and (−1, −1)</strong></p>
+      <br>
+      <p><strong>Vertical (dx/dt = 0):</strong> sin(t) = 0 → t = 0, π</p>
+      <p>Check dy/dt: at t=0, 2cos(0) = 2 ≠ 0 ✓</p>
+      <p>t=0: (−1+3, 1+0) = (2, 1) &nbsp;|&nbsp; t=π: (−1−3, 1+0) = (−4, 1)</p>
+      <p><strong>Vertical tangent points: (2, 1) and (−4, 1)</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK REFERENCE -->
+<div class="section" style="border-bottom: none;">
+  <div class="section-header">
+    <span class="section-num" style="background:var(--accent3)">★</span>
+    <h2>Quick-Reference Cheatsheet</h2>
+  </div>
+
+  <div class="two-col">
+    <div class="formula">
+      <div class="f-label">Polar Conversions</div>
+      x = r·cos θ &nbsp; y = r·sin θ<br>
+      r² = x²+y² &nbsp; tan θ = y/x<br>
+      r = a·cosθ → circle, center (a/2,0)<br>
+      r = a·sinθ → circle, center (0,a/2)
+    </div>
+    <div class="formula">
+      <div class="f-label">Polar Area</div>
+      A = ½∫r² dθ<br>
+      Between curves: ½∫(r₂²−r₁²)dθ<br>
+      Use: cos²θ = (1+cos2θ)/2<br>
+      Set r=0 to find loop bounds
+    </div>
+    <div class="formula">
+      <div class="f-label">Parametric Derivatives</div>
+      dy/dx = (dy/dt)/(dx/dt)<br>
+      Horiz: dy/dt=0, dx/dt≠0<br>
+      Vert:  dx/dt=0, dy/dt≠0
+    </div>
+    <div class="formula">
+      <div class="f-label">Parametrizations</div>
+      Line: x=x₁+(x₂−x₁)t, t∈[0,1]<br>
+      Circle r: x=r·cos t, y=r·sin t<br>
+      Ellipse: x=a·cos t, y=b·sin t<br>
+      (after writing x²/a²+y²/b²=1)
+    </div>
+  </div>
+
+  <table style="margin-top:16px;">
+    <thead>
+      <tr><th>Trig Identity</th><th>Use Case</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>sin²θ + cos²θ = 1</code></td><td>Ellipse parametrization elimination</td></tr>
+      <tr><td><code>sec²θ − tan²θ = 1</code></td><td>x=sec²t, y=tankt type problems</td></tr>
+      <tr><td><code>cos²θ = (1+cos2θ)/2</code></td><td>Integrating r² in polar area</td></tr>
+      <tr><td><code>sin²θ = (1−cos2θ)/2</code></td><td>Integrating r² in polar area</td></tr>
+      <tr><td><code>1 + tan²θ = sec²θ</code></td><td>Alternate form for sec/tan problems</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- end .page -->
+</body>
+</html>
